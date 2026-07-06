@@ -700,6 +700,86 @@ body.sidebar-collapsed #quarto-content main {
 }
 
 /* --------------------------------------------------
+   RESPONSIVE MOBILE — Sidebar & Layout fixes
+-------------------------------------------------- */
+
+@media (max-width: 991px) {
+  /* Force sidebar to behave as overlay, not push content */
+  #quarto-sidebar {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    height: calc(100vh - 60px) !important;
+    z-index: 1040 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15) !important;
+    overflow-y: auto !important;
+  }
+
+  /* When sidebar is shown (Quarto adds 'show' class) */
+  #quarto-sidebar.show,
+  #quarto-sidebar.sidebar-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Content takes full width on mobile */
+  #quarto-content,
+  .quarto-sidebar-content,
+  .page-columns {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Remove grid gaps on mobile */
+  .page-columns {
+    display: block !important;
+  }
+
+  /* Navbar hamburger menu visible */
+  .navbar-toggler {
+    display: flex !important;
+  }
+
+  /* Collapse nav items behind hamburger */
+  .navbar-nav {
+    flex-direction: column !important;
+    padding: 10px 0 !important;
+  }
+
+  /* Pre/code blocks scrollable horizontally */
+  pre {
+    overflow-x: auto !important;
+    white-space: pre !important;
+    word-wrap: normal !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Tables scrollable */
+  .table-responsive, table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* TOC hidden on mobile */
+  #TOC, .toc-actions, #quarto-toc-sidebar {
+    display: none !important;
+  }
+
+  /* Backdrop when sidebar open */
+  body.sidebar-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1039;
+  }
+}
+
+/* --------------------------------------------------
    TYPOGRAPHY
 -------------------------------------------------- */
 

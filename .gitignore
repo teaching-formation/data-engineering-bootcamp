@@ -1,2 +1,12 @@
 /.quarto/
 **/*.quarto_ipynb
+**/.ipynb_checkpoints/
+
+# Local Netlify folder
+.netlify
+
+# Quarto duplicate render artifacts
+* 2.html
+* 3.html
+* 4.html
+* 5.html

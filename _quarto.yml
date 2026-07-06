@@ -313,12 +313,8 @@ website:
             href: notebooks/ai/module4_enrichir.ipynb
           - text: "5 · Automatiser le pipeline"
             href: notebooks/ai/module5_automatiser.ipynb
-          - text: "---"
-          # Projet final — à venir
-          # - text: "6a · Infrastructure & API"
-          #   href: notebooks/ai/module6a_infrastructure_api.ipynb
-          # - text: "6b · Frontend & Déploiement"
-          #   href: notebooks/ai/module6b_frontend_deploy.ipynb
+          - text: "6 · Projet Final — RAG Knowledge Base"
+            href: notebooks/ai/module6_projet_rag.ipynb
 
   # ---------------------------------------------------------------------------
   # 🔍 SEARCH
