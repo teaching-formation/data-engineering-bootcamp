@@ -1,0 +1,45 @@
+---
+title: "☕ Soutenir le Projet"
+description: "Comment aider le bootcamp gratuit à grandir"
+page-layout: article
+---
+
+:::{.callout-important}
+## ⚠️ Le Bootcamp Reste 100% Gratuit
+
+**Aucune obligation.**
+
+✅ Le bootcamp est et restera **totalement gratuit**  
+✅ Tous les modules accessibles à tous  
+✅ Aucun contenu premium
+
+[← Retour au bootcamp](index.qmd)
+:::
+
+---
+
+## 🎁 Comment Soutenir (gratuitement)
+
+Le bootcamp est gratuit et le restera. Voici comment tu peux aider :
+
+- ⭐ **[Star sur GitHub](https://github.com/diakite-data/data-engineering-bootcamp)**
+- 🔗 **Partager** sur LinkedIn, Twitter, WhatsApp
+- 💬 **Aider** d'autres apprenants sur Telegram
+- 📝 **Témoignage** de ton parcours avec le bootcamp
+- 🐛 **Signaler** bugs ou proposer des améliorations
+
+---
+
+## 💼 Pour Organisations
+
+Services professionnels disponibles :
+
+- [👔 Consulting Data Engineering](consulting.qmd)
+- [🎓 Formations sur mesure](corporate.qmd)
+
+Ces services sont **indépendants** du bootcamp gratuit.
+
+---
+
+**YOUSSOUF DIAKITE**  
+*Architecte Data & Expert Data Engineering*

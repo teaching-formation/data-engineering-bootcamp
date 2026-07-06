@@ -51,19 +51,23 @@ website:
   # Page Footer
   page-footer:
     left: |
-      Fait par DIAKITE YOUSSOUF
+      Créé par MAMADOU YOUSSOUF DIAKITE
     center: |
-      © 2026 Bootcamp Data Engineering · From Zero to Hero  
+      © 2026 From Zero to Hero · Bootcamp Data Engineering  
+      Contenu sous licence [CC BY-NC-SA 4.0](LICENSE.md) · Usage commercial interdit  
+      ☕ [Soutenez ce projet](support.qmd) · 💬 [Communauté Telegram](https://t.me/fromzerotoherodataeng)
     right:
       - icon: github
         href: https://github.com/diakite-data/data-engineering-bootcamp
+        aria-label: "Star sur GitHub"
       - icon: linkedin
         href: https://linkedin.com/in/diakite-data
+        aria-label: "LinkedIn"
     border: true
     background: dark
 
   # ---------------------------------------------------------------------------
-  # 🧭 NAVBAR
+  # 🧭 NAVBAR - RESTRUCTURÉE POUR CLARIFICATION V2
   # ---------------------------------------------------------------------------
   navbar:
     background: dark
@@ -76,6 +80,7 @@ website:
     left:
       - text: "🏠 Accueil"
         href: index.qmd
+      
       - text: "📘 Programme"
         menu:
           - text: "🟦 Niveau Débutant"
@@ -85,8 +90,12 @@ website:
           - text: "🟥 Niveau Avancé"
             href: notebooks/advanced/27_kubernetes_deep_dive.ipynb
           - text: "---"
+          - text: "🤖 Data Engineering for AI"
+            href: notebooks/ai/module1_introduction_data_centric_ai.ipynb
+          - text: "---"
           - text: "📊 Vue d'ensemble"
             href: curriculum.qmd
+      
       - text: "🛠️ Ressources"
         menu:
           - text: "📚 Documentation"
@@ -98,8 +107,34 @@ website:
           - text: "---"
           - text: "🔗 Liens Utiles"
             href: resources/links.qmd
+      
+      # ========================================================================
+      # NOUVEAU : Grouper Communauté (Telegram + Support volontaire)
+      # ========================================================================
+      - text: "🤝 Communauté"
+        menu:
+          - text: "💬 Telegram"
+            href: https://t.me/fromzerotoherodataeng
+            aria-label: "Rejoindre le groupe Telegram"
+          - text: "---"
+          - text: "☕ Soutenir le projet"
+            href: support.qmd
+            aria-label: "Donations volontaires pour maintenir le bootcamp gratuit"
+      
+      # ========================================================================
+      # NOUVEAU : Séparer "Pour Organisations" (Services payants)
+      # ========================================================================
+      - text: "💼 Pour Organisations"
+        menu:
+          - text: "👔 Consulting"
+            href: consulting.qmd
+            aria-label: "Services de consulting Data Engineering (payant)"
+          - text: "🎓 Formations"
+            href: corporate.qmd
+            aria-label: "Formations sur mesure pour organisations (payant)"
     
     right:
+      - id: google_translate_element
       - icon: search
         id: search
       - icon: moon
@@ -262,6 +297,29 @@ website:
               - text: "35 · Leadership & Trade-offs"
                 href: notebooks/advanced/35_leadership_tradeoffs.ipynb
 
+      # =========================================================================
+      # 🤖 DATA ENGINEERING FOR AI
+      # =========================================================================
+      - section: "🤖 Data Engineering for AI"
+        contents:
+          - text: "---"
+          - text: "1 · Introduction — Data-Centric AI"
+            href: notebooks/ai/module1_introduction_data_centric_ai.ipynb
+          - text: "2 · Stocker les données"
+            href: notebooks/ai/module2_stocker.ipynb
+          - text: "3 · Transformer les données"
+            href: notebooks/ai/module3_transformer.ipynb
+          - text: "4 · Enrichir les données"
+            href: notebooks/ai/module4_enrichir.ipynb
+          - text: "5 · Automatiser le pipeline"
+            href: notebooks/ai/module5_automatiser.ipynb
+          - text: "---"
+          # Projet final — à venir
+          # - text: "6a · Infrastructure & API"
+          #   href: notebooks/ai/module6a_infrastructure_api.ipynb
+          # - text: "6b · Frontend & Déploiement"
+          #   href: notebooks/ai/module6b_frontend_deploy.ipynb
+
   # ---------------------------------------------------------------------------
   # 🔍 SEARCH
   # ---------------------------------------------------------------------------
@@ -330,7 +388,7 @@ format:
     fig-responsive: true
     self-contained: false
     
-    # Include - Header (fonts, meta, SEO)
+    # Include - Header (fonts, meta, SEO + Google Translate)
     include-in-header:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -340,6 +398,19 @@ format:
           <meta name="keywords" content="data engineering, spark, kafka, python, kubernetes, lakehouse, delta lake, bootcamp, formation, tutoriel">
           <meta name="robots" content="index, follow">
           <link rel="canonical" href="https://diakite-data.github.io/data-engineering-bootcamp">
+          
+          <!-- Google Translate Widget -->
+          <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'fr',
+              includedLanguages: 'en,fr',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
+          </script>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
     # Include - After Body (Reading progress + Sidebar toggle)
     include-after-body:

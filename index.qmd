@@ -13,6 +13,40 @@ format:
 
 ---
 
+:::{.callout-note icon=false collapse=false}
+## 💎 Transparence Totale
+
+### 📚 Le Bootcamp : 100% GRATUIT
+
+✅ **Tous les modules** accessibles gratuitement  
+✅ **Aucun paywall**, jamais  
+✅ **Communauté Telegram** gratuite  
+✅ Le bootcamp restera **TOUJOURS gratuit**
+
+---
+
+### ☕ Support Volontaire (Optionnel)
+
+💡 Si tu veux soutenir : **[Faire un don →](support.qmd)**  
+💡 Aucune obligation  
+💡 Le bootcamp reste gratuit pour tous
+
+---
+
+### 💼 Services Professionnels (Organisations)
+
+Pour organisations ayant besoin de :
+- Formations sur mesure
+- Consulting Data Engineering
+- Audit infrastructure
+
+📧 Services **indépendants** du bootcamp gratuit  
+📧 **[En savoir plus →](consulting.qmd)**
+
+:::
+
+---
+
 ## 🎯 Pourquoi choisir ce Bootcamp ?
 
 Ce programme a été conçu par des Data Engineers expérimentés, en se concentrant sur les **exigences réelles du marché**.  
@@ -163,7 +197,7 @@ Atteindre le niveau "Senior Data Engineer / Architecte Data" avec une maîtrise 
 │   🟩 NIVEAU 2 : INTERMÉDIAIRE                                               │
 │   ════════════════════════════                                              │
 │   Modules 14-25                                                             │
-│   Docker → K8s → Spark avancé → Lakehouse → Streaming → dbt                 │
+│   Docker → K8s → Spark avancé → Lakehouse → Streaming → dbt                │
 │   📦 Projet : Pipeline E-commerce Olist                                     │
 │                          │                                                  │
 │                          ▼                                                  │
@@ -172,9 +206,17 @@ Atteindre le niveau "Senior Data Engineer / Architecte Data" avec une maîtrise 
 │   Modules 27-35                                                             │
 │   K8s Deep Dive → Orchestration → Messaging → Spark/Scala → ML             │
 │   Architecture → Data Mesh → OLAP → Leadership                              │
-│                                                                             │
+│                          │                                                  │
 │                          ▼                                                  │
 │                    🏆 SENIOR READY                                          │
+│                                                                             │
+│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │
+│                                                                             │
+│   🤖 DATA ENGINEERING FOR AI                                                │
+│   ═══════════════════════════                                               │
+│   Modules 1-5                                                               │
+│   Stocker → Transformer → Enrichir (Embeddings) → Automatiser              │
+│   🎯 Projet : Image Search — MinIO + CLIP + Chroma + FastAPI                │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -208,15 +250,18 @@ Atteindre le niveau "Senior Data Engineer / Architecte Data" avec une maîtrise 
 
 👉 Cliquez dans le menu de gauche pour ouvrir le premier module, ou choisissez votre point d'entrée :
 
-<div style="text-align: center; margin: 30px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-  <a href="notebooks/beginner/01_intro_data_engineering.ipynb" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 15px 30px; text-decoration: none; font-size: 16px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);">
+<div style="text-align: center; margin: 30px 0; display: flex; flex-wrap: nowrap; justify-content: center; gap: 12px;">
+  <a href="notebooks/beginner/01_intro_data_engineering.ipynb" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 14px 20px; text-decoration: none; font-size: 15px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); white-space: nowrap; flex: 1; text-align: center;">
     🟦 Niveau Débutant
   </a>
-  <a href="notebooks/intermediate/14_docker_for_data_engineers.ipynb" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 15px 30px; text-decoration: none; font-size: 16px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);">
+  <a href="notebooks/intermediate/14_docker_for_data_engineers.ipynb" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 14px 20px; text-decoration: none; font-size: 15px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); white-space: nowrap; flex: 1; text-align: center;">
     🟩 Niveau Intermédiaire
   </a>
-  <a href="notebooks/advanced/27_kubernetes_deep_dive.ipynb" style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 15px 30px; text-decoration: none; font-size: 16px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);">
+  <a href="notebooks/advanced/27_kubernetes_deep_dive.ipynb" style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 14px 20px; text-decoration: none; font-size: 15px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); white-space: nowrap; flex: 1; text-align: center;">
     🟥 Niveau Avancé
+  </a>
+  <a href="notebooks/ai/module1_introduction_data_centric_ai.ipynb" style="background: linear-gradient(135deg, #a855f7, #7c3aed); color: white; padding: 14px 20px; text-decoration: none; font-size: 15px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3); white-space: nowrap; flex: 1; text-align: center;">
+    🤖 DE for AI
   </a>
 </div>
 
@@ -229,6 +274,27 @@ Atteindre le niveau "Senior Data Engineer / Architecte Data" avec une maîtrise 
 3. **Expérimentez** : Modifiez le code, cassez des choses, apprenez des erreurs.
 4. **Documentez** : Prenez des notes, créez votre propre documentation.
 5. **Construisez votre portfolio** : Les projets intégrateurs sont présentables en entretien.
+
+---
+
+# 🤖 Data Engineering for AI
+
+### 🎯 Objectif  
+Maîtriser l'infrastructure data pour les projets d'IA et de Machine Learning : stockage, transformation, enrichissement et automatisation de pipelines orientés ML.
+
+### 📚 Modules
+
+| # | Module | Thèmes Clés |
+|:--|:-------|:------------|
+| 1 | Introduction — Data-Centric AI | Paradigme data-centric, rôle du DE dans les projets IA, stack technique |
+| 2 | Stocker les données | MinIO, formats optimisés (Parquet, WebDataset), métadonnées |
+| 3 | Transformer les données | Preprocessing images à grande échelle, Pillow, data quality |
+| 4 | Enrichir les données | Embeddings, CLIP, Vector Databases (Chroma), indexation sémantique |
+| 5 | Automatiser le pipeline | Orchestration avec Prefect, DAGs, retry automatique, monitoring |
+
+> **🎯 Résultat :** Capable de construire un pipeline data complet pour alimenter un projet IA, de l'ingestion brute jusqu'aux embeddings en production.
+
+> **Projet final** *(à venir)* : Système de recherche d'images par description textuelle — MinIO + CLIP + Chroma + FastAPI + Streamlit.
 
 ---
 
