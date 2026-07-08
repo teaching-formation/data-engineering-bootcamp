@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site-nextjs-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "site/out", "-l", "4300"],
+      "port": 4300
+    }
+  ]
+}

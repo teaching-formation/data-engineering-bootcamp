@@ -1,0 +1,73 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { NAV, levelOf } from "@/lib/nav";
+
+function currentSlug(pathname: string): string {
+  const m = pathname.match(/\/modules\/([^/]+)/);
+  return m ? m[1] : "";
+}
+
+export default function Sidebar() {
+  const pathname = usePathname();
+  const slug = currentSlug(pathname);
+  const activeLevel = slug ? levelOf(slug)?.id : undefined;
+  const [open, setOpen] = useState<Record<string, boolean>>({});
+
+  function isLevelOpen(id: string): boolean {
+    return open[id] ?? id === activeLevel;
+  }
+
+  function closeDrawer() {
+    document.body.classList.remove("sidebar-open");
+  }
+
+  return (
+    <>
+      <div className="sidebar-backdrop" onClick={closeDrawer} aria-hidden />
+      <aside className="sidebar" aria-label="Navigation du cours">
+        <nav>
+          {NAV.map((level) => {
+            const opened = isLevelOpen(level.id);
+            return (
+              <div key={level.id} className="sidebar__level">
+                <button
+                  className="sidebar__level-btn"
+                  style={{ ["--accent" as string]: level.accent }}
+                  aria-expanded={opened}
+                  onClick={() => setOpen((o) => ({ ...o, [level.id]: !opened }))}
+                >
+                  <span>{level.label}</span>
+                  <span className="sidebar__chevron">{opened ? "▾" : "▸"}</span>
+                </button>
+                {opened && (
+                  <div className="sidebar__sections">
+                    {level.sections.map((section) => (
+                      <div key={section.title} className="sidebar__section">
+                        <p className="sidebar__section-title">{section.title}</p>
+                        <ul>
+                          {section.items.map((it) => (
+                            <li key={it.slug}>
+                              <Link
+                                href={`/modules/${it.slug}/`}
+                                className={`sidebar__link ${slug === it.slug ? "is-active" : ""}`}
+                                onClick={closeDrawer}
+                              >
+                                {it.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </nav>
+      </aside>
+    </>
+  );
+}
