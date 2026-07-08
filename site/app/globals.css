@@ -111,6 +111,9 @@ a:hover {
 .brand__mark {
   font-size: 20px;
 }
+.brand__text {
+  white-space: nowrap;
+}
 .brand__text strong {
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -796,6 +799,26 @@ a:hover {
   }
   .hamburger {
     display: inline-flex;
+  }
+  .brand__prefix {
+    display: none;
+  }
+  .site-header__inner {
+    padding: 0 14px;
+    gap: 10px;
+  }
+  .site-header__actions {
+    gap: 2px;
+  }
+  .doc {
+    padding: 22px 16px 64px;
+    gap: 24px;
+  }
+  .home {
+    padding: 32px 16px 64px;
+  }
+  .notebook-content {
+    font-size: 15.5px;
   }
   .shell {
     grid-template-columns: minmax(0, 1fr);

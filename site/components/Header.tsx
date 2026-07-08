@@ -19,7 +19,8 @@ export default function Header() {
         <Link href="/" className="brand">
           <span className="brand__mark">⚙️</span>
           <span className="brand__text">
-            Bootcamp <strong>Data Engineering</strong>
+            <span className="brand__prefix">Bootcamp </span>
+            <strong>Data Engineering</strong>
           </span>
         </Link>
 
