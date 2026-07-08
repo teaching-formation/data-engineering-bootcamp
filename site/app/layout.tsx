@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
-import "highlight.js/styles/github-dark.css";
+import "highlight.js/styles/base16/dracula.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
