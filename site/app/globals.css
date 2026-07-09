@@ -313,6 +313,9 @@ a:hover {
   color: var(--text);
 }
 .toc__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
@@ -323,8 +326,28 @@ a:hover {
   font-size: 11px;
   transition: transform 0.15s;
 }
-.toc.is-collapsed .toc__toggle {
-  padding-bottom: 4px;
+
+/* --- Replié : le contenu s'élargit, le TOC devient un bouton compact --- */
+body.toc-collapsed .doc {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+body.toc-collapsed .toc__label {
+  display: none;
+}
+body.toc-collapsed .toc__toggle {
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 9px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-soft);
+  box-shadow: var(--shadow-sm);
+}
+body.toc-collapsed .toc__toggle:hover {
+  border-color: var(--accent);
+}
+body.toc-collapsed .toc__ico {
+  font-size: 15px;
 }
 .toc ul {
   list-style: none;

@@ -13,6 +13,12 @@ export default function TableOfContents({ toc }: { toc: TocEntry[] }) {
     } catch {}
   }, []);
 
+  // Synchronise une classe sur <body> pour élargir le contenu quand replié
+  useEffect(() => {
+    document.body.classList.toggle("toc-collapsed", collapsed);
+    return () => document.body.classList.remove("toc-collapsed");
+  }, [collapsed]);
+
   function toggle() {
     setCollapsed((c) => {
       const next = !c;
@@ -47,8 +53,16 @@ export default function TableOfContents({ toc }: { toc: TocEntry[] }) {
 
   return (
     <nav className={`toc ${collapsed ? "is-collapsed" : ""}`} aria-label="Sommaire">
-      <button className="toc__toggle" onClick={toggle} aria-expanded={!collapsed} title={collapsed ? "Afficher le sommaire" : "Réduire le sommaire"}>
-        <span className="toc__title">📑 Sur cette page</span>
+      <button
+        className="toc__toggle"
+        onClick={toggle}
+        aria-expanded={!collapsed}
+        title={collapsed ? "Afficher le sommaire" : "Réduire le sommaire"}
+      >
+        <span className="toc__title">
+          <span className="toc__ico" aria-hidden>📑</span>
+          <span className="toc__label">Sur cette page</span>
+        </span>
         <span className="toc__chevron" aria-hidden>{collapsed ? "▸" : "▾"}</span>
       </button>
       {!collapsed && (
