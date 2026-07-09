@@ -286,6 +286,66 @@ a:hover {
   display: none;
 }
 
+/* Bouton de repli de la sidebar (desktop) */
+.sidebar__collapse {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 6px;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--text-faint);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.sidebar__collapse:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+.sidebar__collapse-chevron {
+  font-size: 13px;
+}
+
+/* Sur mobile : la sidebar est un drawer (hamburger), pas de repli */
+@media (max-width: 860px) {
+  .sidebar__collapse {
+    display: none;
+  }
+}
+
+/* Desktop : repli → contenu élargi, sidebar réduite à un bouton compact */
+@media (min-width: 861px) {
+  body.sidebar-collapsed .shell {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  /* Relève le plafond de largeur pour absorber l'espace libéré par la sidebar */
+  body.sidebar-collapsed .doc {
+    max-width: calc(var(--maxw) + var(--toc-w) + 40px + var(--sidebar-w) - 44px);
+  }
+  body.sidebar-collapsed .sidebar {
+    padding: 14px 8px;
+  }
+  body.sidebar-collapsed .sidebar nav {
+    display: none;
+  }
+  body.sidebar-collapsed .sidebar__collapse {
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-elev);
+  }
+  body.sidebar-collapsed .sidebar__collapse-label {
+    display: none;
+  }
+}
+
 /* ============================================================
    TOC (droite)
    ============================================================ */
