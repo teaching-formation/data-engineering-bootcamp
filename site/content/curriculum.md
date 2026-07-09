@@ -16,6 +16,8 @@
 │   Modules 01-13        Modules 14-26            Modules 27-35     SENIOR   │
 │   + Projet 🎮          + Projet 📦              Spécialisation    READY    │
 │                                                                             │
+│   🤖 DATA ENGINEERING FOR AI  ──►  Modules 1-6  ·  transverse (RAG)          │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -144,6 +146,33 @@
 - Implémenter la gouvernance et la sécurité des données
 - Mener des design reviews et rédiger des ADR/RFC
 - Guider et mentorer une équipe technique
+
+---
+
+## 🤖 Data Engineering for AI — Préparer les données pour l'IA
+
+> 💡 **Parcours transverse**
+>
+> Complémentaire aux trois niveaux : comment construire des pipelines de données pour les applications d'IA modernes (LLM, RAG, fine-tuning).
+
+**🎯 Objectif** : Maîtriser la préparation, le stockage et l'enrichissement des données pour l'IA — jusqu'à un projet **RAG** (Retrieval-Augmented Generation) complet.
+
+### 📚 Modules
+
+| # | Module | Thèmes Clés |
+|:--|:-------|:------------|
+| 1 | [Introduction — Data-Centric AI](/modules/ai__module1_introduction_data_centric_ai/) | Approche data-centric, qualité des données, cycle de vie IA |
+| 2 | [Stocker les données](/modules/ai__module2_stocker/) | Formats, object storage, bases vectorielles, embeddings |
+| 3 | [Transformer les données](/modules/ai__module3_transformer/) | Nettoyage, chunking, normalisation pour l'IA |
+| 4 | [Enrichir les données](/modules/ai__module4_enrichir/) | Embeddings, métadonnées, augmentation, labelling |
+| 5 | [Automatiser le pipeline](/modules/ai__module5_automatiser/) | Orchestration, ingestion continue, monitoring |
+| 6 | [Projet Final — RAG Knowledge Base](/modules/ai__module6_projet_rag/) | Pipeline RAG complet : ingest → chunk → embed → index → search → generate |
+
+**✅ À la fin de ce parcours, vous savez :**
+
+- Préparer des données de qualité pour des applications d'IA
+- Construire un pipeline d'embeddings et une base vectorielle (ChromaDB)
+- Concevoir et déployer un système **RAG** de bout en bout
 
 ---
 

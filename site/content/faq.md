@@ -2,7 +2,7 @@
 
 > **💡 Vous ne trouvez pas votre réponse ?**
 >
-> Posez votre question dans les [GitHub Discussions](https://github.com/diakite-data/data-engineering-bootcamp/discussions) ou utilisez les commentaires Giscus en bas de chaque page.
+> Posez votre question dans les [GitHub Discussions](https://github.com/teaching-formation/data-engineering-bootcamp/discussions) ou utilisez les commentaires Giscus en bas de chaque page.
 
 ---
 
@@ -400,8 +400,8 @@ java -version
 
 | Canal | Usage | Lien |
 |-------|-------|------|
-| **GitHub Issues** | Bugs, erreurs dans les notebooks | [Issues](https://github.com/diakite-data/data-engineering-bootcamp/issues) |
-| **GitHub Discussions** | Questions générales, aide | [Discussions](https://github.com/diakite-data/data-engineering-bootcamp/discussions) |
+| **GitHub Issues** | Bugs, erreurs dans les notebooks | [Issues](https://github.com/teaching-formation/data-engineering-bootcamp/issues) |
+| **GitHub Discussions** | Questions générales, aide | [Discussions](https://github.com/teaching-formation/data-engineering-bootcamp/discussions) |
 | **Commentaires Giscus** | Questions sur un module spécifique | En bas de chaque page |
 
 ### Avant de poser une question :

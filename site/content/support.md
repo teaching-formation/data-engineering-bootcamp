@@ -17,7 +17,7 @@
 
 Le bootcamp est gratuit et le restera. Voici comment tu peux aider :
 
-- ⭐ **[Star sur GitHub](https://github.com/diakite-data/data-engineering-bootcamp)**
+- ⭐ **[Star sur GitHub](https://github.com/teaching-formation/data-engineering-bootcamp)**
 - 🔗 **Partager** sur LinkedIn, Twitter, WhatsApp
 - 💬 **Aider** d'autres apprenants sur Telegram
 - 📝 **Témoignage** de ton parcours avec le bootcamp
