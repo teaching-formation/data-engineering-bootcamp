@@ -16,12 +16,9 @@ export default function Header() {
         <button className="hamburger" onClick={toggleSidebar} aria-label="Ouvrir le menu">
           ☰
         </button>
-        <Link href="/" className="brand">
-          <span className="brand__mark">⚙️</span>
-          <span className="brand__text">
-            <span className="brand__prefix">Bootcamp </span>
-            <strong>Data Engineering</strong>
-          </span>
+        <Link href="/" className="brand" aria-label="Accueil — Bootcamp Data Engineering">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="brand__logo" src="/logo-navbar.svg" alt="DE Bootcamp — Data Engineering" width={160} height={32} />
         </Link>
 
         <nav className="site-header__nav">

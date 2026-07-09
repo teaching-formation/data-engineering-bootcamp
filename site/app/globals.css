@@ -111,6 +111,11 @@ a:hover {
 .brand__mark {
   font-size: 20px;
 }
+.brand__logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
 .brand__text {
   white-space: nowrap;
 }
