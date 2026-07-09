@@ -227,4 +227,4 @@
 
 ---
 
-[🏠 Retour à l'accueil](/){.btn .btn-secondary}
+[🏠 Retour à l'accueil](/)

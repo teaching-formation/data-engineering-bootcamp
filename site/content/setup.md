@@ -824,4 +824,4 @@ minikube start --memory=4096 --cpus=2 --driver=docker
 
 ---
 
-[🏠 Retour à l'accueil](/){.btn .btn-secondary}
+[🏠 Retour à l'accueil](/)
