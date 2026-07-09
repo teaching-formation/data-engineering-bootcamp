@@ -223,6 +223,9 @@
   <a href="/modules/advanced__27_kubernetes_deep_dive/" style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 15px 30px; text-decoration: none; font-size: 16px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);">
     🟥 Commencer Niveau 3
   </a>
+  <a href="/modules/ai__module1_introduction_data_centric_ai/" style="background: linear-gradient(135deg, #a855f7, #7c3aed); color: white; padding: 15px 30px; text-decoration: none; font-size: 16px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);">
+    🤖 Parcours IA
+  </a>
 </div>
 
 ---
