@@ -22,19 +22,8 @@ cat > .vercel/project.json <<'JSON'
 {"projectId":"prj_fdRBu4YRBT0n1VlrkRGtwKkldcP6","orgId":"team_gzHpTN5fL7z69QNq6vfa0rd7","projectName":"data-engineering-bootcamp"}
 JSON
 
-# Domaine canonique : redirige l'URL Vercel (.vercel.app) vers le domaine custom
-cat > vercel.json <<'JSON'
-{
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "data-engineering-bootcamp.vercel.app" }],
-      "destination": "https://dataeng.from0tohero.dev/:path*",
-      "permanent": true
-    }
-  ]
-}
-JSON
+# Note : la redirection data-engineering-bootcamp.vercel.app → dataeng.from0tohero.dev
+# est configurée au niveau du domaine Vercel (persistante), pas ici.
 
 vercel deploy --prod --yes
 
