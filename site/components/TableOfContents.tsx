@@ -4,6 +4,24 @@ import type { TocEntry } from "@/lib/render";
 
 export default function TableOfContents({ toc }: { toc: TocEntry[] }) {
   const [active, setActive] = useState<string>("");
+  const [collapsed, setCollapsed] = useState(false);
+
+  // État de pli mémorisé → s'applique à toutes les pages
+  useEffect(() => {
+    try {
+      setCollapsed(localStorage.getItem("toc-collapsed") === "1");
+    } catch {}
+  }, []);
+
+  function toggle() {
+    setCollapsed((c) => {
+      const next = !c;
+      try {
+        localStorage.setItem("toc-collapsed", next ? "1" : "0");
+      } catch {}
+      return next;
+    });
+  }
 
   useEffect(() => {
     if (toc.length === 0) return;
@@ -28,15 +46,20 @@ export default function TableOfContents({ toc }: { toc: TocEntry[] }) {
   if (toc.length === 0) return null;
 
   return (
-    <nav className="toc" aria-label="Sommaire">
-      <p className="toc__title">📑 Sur cette page</p>
-      <ul>
-        {toc.map((t) => (
-          <li key={t.id} className={`toc__item toc__l${t.level} ${active === t.id ? "is-active" : ""}`}>
-            <a href={`#${t.id}`}>{t.text}</a>
-          </li>
-        ))}
-      </ul>
+    <nav className={`toc ${collapsed ? "is-collapsed" : ""}`} aria-label="Sommaire">
+      <button className="toc__toggle" onClick={toggle} aria-expanded={!collapsed} title={collapsed ? "Afficher le sommaire" : "Réduire le sommaire"}>
+        <span className="toc__title">📑 Sur cette page</span>
+        <span className="toc__chevron" aria-hidden>{collapsed ? "▸" : "▾"}</span>
+      </button>
+      {!collapsed && (
+        <ul>
+          {toc.map((t) => (
+            <li key={t.id} className={`toc__item toc__l${t.level} ${active === t.id ? "is-active" : ""}`}>
+              <a href={`#${t.id}`}>{t.text}</a>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 }

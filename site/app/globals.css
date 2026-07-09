@@ -297,13 +297,34 @@ a:hover {
   overflow-y: auto;
   font-size: 13px;
 }
+.toc__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 0 8px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--text-soft);
+}
+.toc__toggle:hover {
+  color: var(--text);
+}
 .toc__title {
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-soft);
-  margin: 0 0 8px;
+  margin: 0;
+}
+.toc__chevron {
+  font-size: 11px;
+  transition: transform 0.15s;
+}
+.toc.is-collapsed .toc__toggle {
+  padding-bottom: 4px;
 }
 .toc ul {
   list-style: none;
