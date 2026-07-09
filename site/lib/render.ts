@@ -119,3 +119,14 @@ export function renderNotebook(file: string): RenderedNotebook {
 
   return { html: parts.join("\n"), toc, title: title || "Module" };
 }
+
+/** Rend une page markdown simple (pages info : consulting, faq, etc.). */
+export function renderMarkdownString(markdown: string): RenderedNotebook {
+  const toc: TocEntry[] = [];
+  const slugify = makeSlugger();
+  const md = buildMarkdown(toc, slugify);
+  let title = "";
+  const m = markdown.match(/^\s*#\s+(.+)$/m);
+  if (m) title = m[1].replace(/[#*`]/g, "").trim();
+  return { html: md.render(markdown), toc, title: title || "Page" };
+}

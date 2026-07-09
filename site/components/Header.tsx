@@ -24,9 +24,33 @@ export default function Header() {
         <nav className="site-header__nav">
           <Link href="/">Accueil</Link>
           <Link href="/modules/beginner__01_intro_data_engineering/">Programme</Link>
-          <a href="https://t.me/fromzerotoherodataeng" target="_blank" rel="noreferrer">
-            Communauté
-          </a>
+
+          <div className="nav-dd">
+            <button className="nav-dd__btn" type="button">Ressources ▾</button>
+            <div className="nav-dd__menu">
+              <Link href="/curriculum/">📊 Programme complet</Link>
+              <Link href="/documentation/">📚 Documentation</Link>
+              <Link href="/setup/">🔧 Setup environnement</Link>
+              <Link href="/faq/">❓ FAQ</Link>
+              <Link href="/links/">🔗 Liens utiles</Link>
+            </div>
+          </div>
+
+          <div className="nav-dd">
+            <button className="nav-dd__btn" type="button">Pour Organisations ▾</button>
+            <div className="nav-dd__menu">
+              <Link href="/consulting/">👔 Consulting</Link>
+              <Link href="/formations/">🎓 Formations</Link>
+            </div>
+          </div>
+
+          <div className="nav-dd">
+            <button className="nav-dd__btn" type="button">Communauté ▾</button>
+            <div className="nav-dd__menu">
+              <a href="https://t.me/fromzerotoherodataeng" target="_blank" rel="noreferrer">💬 Telegram</a>
+              <Link href="/support/">☕ Soutenir le projet</Link>
+            </div>
+          </div>
         </nav>
 
         <div className="site-header__actions">
