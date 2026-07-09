@@ -167,13 +167,23 @@ export const NAV: NavLevel[] = [
     accent: "#a855f7",
     sections: [
       {
-        title: "Parcours IA",
+        title: "🧭 Fondations",
         items: [
           item("ai/module1_introduction_data_centric_ai", "1 · Introduction — Data-Centric AI"),
+        ],
+      },
+      {
+        title: "🔧 Pipeline de données",
+        items: [
           item("ai/module2_stocker", "2 · Stocker les données"),
           item("ai/module3_transformer", "3 · Transformer les données"),
           item("ai/module4_enrichir", "4 · Enrichir les données"),
           item("ai/module5_automatiser", "5 · Automatiser le pipeline"),
+        ],
+      },
+      {
+        title: "🚀 Projet",
+        items: [
           item("ai/module6_projet_rag", "6 · Projet Final — RAG Knowledge Base"),
         ],
       },
