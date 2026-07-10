@@ -37,14 +37,6 @@ export default function Header() {
           </div>
 
           <div className="nav-dd">
-            <button className="nav-dd__btn" type="button">Pour Organisations ▾</button>
-            <div className="nav-dd__menu">
-              <Link href="/consulting/">👔 Consulting</Link>
-              <Link href="/formations/">🎓 Formations</Link>
-            </div>
-          </div>
-
-          <div className="nav-dd">
             <button className="nav-dd__btn" type="button">Communauté ▾</button>
             <div className="nav-dd__menu">
               <a href="https://t.me/fromzerotoherodataeng" target="_blank" rel="noreferrer">💬 Telegram</a>
