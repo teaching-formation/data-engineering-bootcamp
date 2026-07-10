@@ -2,7 +2,7 @@
 
 ## Renforcer les compétences de vos équipes
 
-J'interviens auprès **d'entreprises, d'écoles, d'institutions et d'organisations** pour concevoir et animer des **formations Data Engineering sur mesure**, directement alignées sur les environnements techniques réels, les contraintes opérationnelles et les objectifs de montée en compétence.
+J'interviens auprès **d'entreprises, d'écoles, d'institutions et d'organisations** pour concevoir et animer des **formations Data Engineering & IA sur mesure**, directement alignées sur les environnements techniques réels, les contraintes opérationnelles et les objectifs de montée en compétence.
 
 Les interventions s'appuient sur des retours d'expérience terrain, des architectures data modernes et des pratiques d'industrialisation utilisées en production.
 
@@ -79,6 +79,7 @@ Selon les besoins, les interventions peuvent couvrir une combinaison de ces axes
 | Orchestration | Airflow, Dagster, structuration workflows |
 | Qualité & Gouvernance Technique | Data quality, validation, monitoring, bonnes pratiques |
 | Performance & Coûts | optimisation traitements & usages infrastructure |
+| Data pour l'IA & MLOps | Pipelines RAG/LLM, embeddings, bases vectorielles, industrialisation ML |
 
 Les axes retenus sont ajustés au contexte de la mission.
 
@@ -136,6 +137,7 @@ Les livrables pédagogiques sont définis selon la mission.
 - ✅ Basé sur architectures et pipelines en production
 - ✅ Double vision architecture + delivery terrain
 - ✅ Expertise data platform moderne
+- ✅ Data pour l'IA : pipelines RAG/LLM, bases vectorielles, MLOps
 - ✅ Pédagogie éprouvée (bootcamp Data Engineering)
 - ✅ Approche sur mesure
 - ✅ Orientation autonomie équipes
@@ -145,8 +147,8 @@ Les livrables pédagogiques sont définis selon la mission.
 
 ## 📞 Demande de formation
 
-Contact via LinkedIn :  
-🔗 https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/
+👉 **Contactez-moi sur LinkedIn** :  
+🔗 [linkedin.com/in/mamadou-youssouf-diakite](https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/)
 
 Merci de préciser :
 
@@ -166,8 +168,8 @@ Les interventions formation sont acceptées en nombre limité, selon priorisatio
 
 ---
 
-**MAMADOU YOUSSOUF DIAKITE**  
-*Architecte Data & Expert Data Engineering*
+**Mamadou Youssouf Diakité**  
+*Expert Data & IA · Architecte de plateformes data*
 
 ---
 

@@ -1,12 +1,12 @@
-# 💼 Architecte Data & Expert Data Engineering | Consulting
+# 💼 Consulting Data & IA — Architecture & Engineering
 
-## Expert Data Engineering & Architecture
+## Expert Data & IA · Architecture
 
 Chef de service **Études & Architecture Data** à l'**Agence Nationale du Service Universel des Télécommunications/TIC (ANSUT)** en Côte d'Ivoire — organisme public responsable de l'accès universel aux services numériques — et ancien **Tech Lead Data Engineering chez Orange Côte d'Ivoire**, où j'ai piloté des plateformes data en production et managé une équipe de plus de 15 data engineers.
 
 Je contribue à la conception et à l'industrialisation de plateformes data à grande échelle dans un contexte institutionnel et national.
 
-Fort de cette expérience terrain, architecture et delivery, j'accompagne les organisations à transformer leurs données en atout stratégique via des architectures robustes, scalables et alignées sur la valeur métier.
+Fort de cette expérience terrain, architecture et delivery, j'accompagne les organisations à transformer leurs données en atout stratégique — **de la plateforme data jusqu'aux pipelines de données pour l'IA (LLM, RAG, ML)** — via des architectures robustes, scalables et alignées sur la valeur métier.
 
 J'interviens auprès de :
 
@@ -67,6 +67,18 @@ Renforcement durable des capacités de vos équipes techniques.
 
 ---
 
+### 🤖 Data pour l'IA & MLOps
+
+Préparer et industrialiser les données pour les applications d'IA modernes.
+
+- Pipelines de données pour LLM / RAG (ingestion, chunking, embeddings)
+- Bases vectorielles et recherche sémantique (ChromaDB, pgvector)
+- Feature stores et industrialisation des pipelines ML
+- Approche **data-centric AI** : qualité et gouvernance des données d'entraînement
+- MLOps : versioning, monitoring et déploiement de modèles
+
+---
+
 ## 🛠️ Stack Technique Maîtrisée
 
 | Domaine | Technologies |
@@ -76,6 +88,7 @@ Renforcement durable des capacités de vos équipes techniques.
 | Stockage & Lakehouse | Delta Lake, Apache Iceberg, Parquet, AWS S3 |
 | Infrastructure & Cloud | Docker, Kubernetes, AWS, Azure, GCP |
 | Data Quality & Analytics | dbt, Great Expectations, frameworks de tests data |
+| IA & ML | Embeddings, bases vectorielles (ChromaDB), RAG, MLflow, feature stores |
 
 ---
 
@@ -85,6 +98,7 @@ Renforcement durable des capacités de vos équipes techniques.
 - ✅ Expertise validée en production : plateformes data déployées à échelle nationale
 - ✅ Vision architecture + profondeur technique : conception + optimisation terrain
 - ✅ Expertise technique avancée : Spark, Kafka, Kubernetes, architectures Lakehouse et écosystèmes data associés
+- ✅ Data pour l'IA : pipelines RAG/LLM, bases vectorielles, MLOps et data-centric AI
 - ✅ Expérience de pilotage d'équipes data (15+ ingénieurs)
 - ✅ Approche pragmatique orientée résultats
 - ✅ Pédagogue & formateur : créateur du bootcamp Data Engineering
@@ -110,11 +124,10 @@ Les projets au long cours sont étudiés au cas par cas.
 
 ## 📬 Démarrons une Conversation
 
-Prêt à rendre votre plateforme data plus performante, fiable et alignée avec vos objectifs ?
+Prêt à rendre votre plateforme **data & IA** plus performante, fiable et alignée avec vos objectifs ?
 
-Contactez-moi via LinkedIn pour une discussion exploratoire.
-
-🔗 **LinkedIn :** https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/
+👉 **Contactez-moi sur LinkedIn** pour une discussion exploratoire :
+🔗 [linkedin.com/in/mamadou-youssouf-diakite](https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/)
 
 Pour une réponse rapide et pertinente, merci de préciser :
 
@@ -127,8 +140,8 @@ Pour une réponse rapide et pertinente, merci de préciser :
 
 ---
 
-**YOUSSOUF DIAKITE**  
-*Architecte Data & Expert Data Engineering*
+**Mamadou Youssouf Diakité**  
+*Expert Data & IA · Architecte de plateformes data*
 
 ---
 

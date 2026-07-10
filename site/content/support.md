@@ -36,5 +36,5 @@ Ces services sont **indépendants** du bootcamp gratuit.
 
 ---
 
-**YOUSSOUF DIAKITE**  
-*Architecte Data & Expert Data Engineering*
+**Mamadou Youssouf Diakité**  
+*Expert Data & IA · Architecte de plateformes data*
