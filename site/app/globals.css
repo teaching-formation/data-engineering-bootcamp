@@ -140,6 +140,14 @@ a:hover {
   color: var(--accent);
   text-decoration: none;
 }
+.site-header__nav a.nav-cross {
+  color: var(--accent-2);
+  font-weight: 600;
+}
+.site-header__nav a.nav-cross:hover {
+  opacity: 0.85;
+  color: var(--accent-2);
+}
 
 /* Menus déroulants du header (CSS pur, hover/focus) */
 .nav-dd {

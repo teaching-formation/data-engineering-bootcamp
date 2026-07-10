@@ -32,8 +32,8 @@ export default function Footer() {
           <a href={GITHUB} target="_blank" rel="noreferrer">
             GitHub
           </a>
-          <a href="https://linkedin.com/in/diakite-data" target="_blank" rel="noreferrer">
-            LinkedIn
+          <a href="https://dataana.from0tohero.dev" target="_blank" rel="noreferrer">
+            📊 Bootcamp Data Analyst ↗
           </a>
         </div>
       </div>
