@@ -4,7 +4,7 @@
 
 J'interviens auprès **d'entreprises, d'écoles, d'institutions et d'organisations** pour concevoir et animer des **formations Data Engineering & IA sur mesure**, directement alignées sur les environnements techniques réels, les contraintes opérationnelles et les objectifs de montée en compétence.
 
-Les interventions s'appuient sur des retours d'expérience terrain, des architectures data modernes et des pratiques d'industrialisation utilisées en production.
+Les interventions s'appuient sur des retours d'expérience terrain, des architectures **data & IA modernes** et des pratiques d'industrialisation (data engineering, MLOps) utilisées en production.
 
 Objectif : permettre aux équipes techniques de gagner en **autonomie, rigueur d'ingénierie et capacité d'exécution**.
 
@@ -44,9 +44,10 @@ Ces formations s'adressent aux organisations :
 
 - Data Engineers
 - Analytics / Analytics Engineers
+- ML / AI Engineers
 - Data Scientists en phase d'industrialisation
 - Tech Leads & Architectes
-- Équipes data pluridisciplinaires
+- Équipes data & IA pluridisciplinaires
 - Équipes en structuration de data platform
 
 ---
@@ -63,6 +64,8 @@ Le contenu, le niveau et l'organisation sont définis **au cas par cas** selon :
 - mes disponibilités
 
 Chaque programme est construit pour être **directement applicable dans votre contexte réel**.
+
+Les parcours peuvent s'appuyer sur le socle du bootcamp **Data Engineering — From Zero to Hero** (fondations, Spark, Kafka, Lakehouse, dbt) et son **parcours Data pour l'IA** (RAG, embeddings, MLOps), adaptés au niveau et aux objectifs de vos équipes.
 
 ---
 
@@ -126,7 +129,7 @@ Approche fortement orientée pratique :
 - ✅ revues de code
 - ✅ patterns & anti-patterns
 - ✅ retours d'expérience production
-- ✅ bonnes pratiques d'ingénierie data
+- ✅ bonnes pratiques d'ingénierie data & IA
 
 Les livrables pédagogiques sont définis selon la mission.
 
@@ -174,4 +177,4 @@ Les interventions formation sont acceptées en nombre limité, selon priorisatio
 ---
 
 💡 Besoin d'expertise ou d'audit ?  
-Voir : [Consulting Data Engineering](/consulting/)
+Voir : [Consulting Data & IA](/consulting/)
