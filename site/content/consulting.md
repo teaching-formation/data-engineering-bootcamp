@@ -1,4 +1,4 @@
-# 💼 Consulting Data & IA — Architecture & Engineering
+# 💼 Consulting Data & IA
 
 ## Expert Data & IA · Architecture
 
