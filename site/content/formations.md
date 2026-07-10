@@ -1,4 +1,4 @@
-# 🎓 Formations sur Mesure
+# 🎓 Formations Data & IA sur Mesure
 
 ## Renforcer les compétences de vos équipes
 
