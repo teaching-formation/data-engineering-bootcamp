@@ -20,10 +20,10 @@ export default function Home() {
         <div className="hero__grid" aria-hidden />
         <div className="hero__inner">
           <p className="hero__kicker">
-            <span>⚙️</span> Bootcamp Data Engineering
+            <span>⚙️</span> Bootcamp · From Zero to Hero
           </p>
           <div className="hero__divider" />
-          <h1 className="hero__title">From Zero to Hero</h1>
+          <h1 className="hero__title">Data Engineering</h1>
           <p className="hero__sub">
             Du débutant au Senior Data Engineer — {totalModules} modules pratiques, du terminal Linux jusqu&apos;à un
             pipeline RAG complet.
