@@ -2,179 +2,50 @@
 
 ## Renforcer les compétences de vos équipes
 
-J'interviens auprès **d'entreprises, d'écoles, d'institutions et d'organisations** pour concevoir et animer des **formations Data Engineering & IA sur mesure**, directement alignées sur les environnements techniques réels, les contraintes opérationnelles et les objectifs de montée en compétence.
+Je conçois et anime des **formations Data Engineering & IA sur mesure** pour entreprises, écoles et institutions — alignées sur vos environnements techniques réels et vos objectifs de montée en compétence.
 
-Les interventions s'appuient sur des retours d'expérience terrain, des architectures **data & IA modernes** et des pratiques d'industrialisation (data engineering, MLOps) utilisées en production.
-
-Objectif : permettre aux équipes techniques de gagner en **autonomie, rigueur d'ingénierie et capacité d'exécution**.
+Objectif : rendre vos équipes **autonomes, rigoureuses et opérationnelles**.
 
 ---
 
 ## 🎯 Pour qui
 
-Ces formations s'adressent aux organisations :
+Data Engineers · Analytics / ML / AI Engineers · Data Scientists en industrialisation · Tech Leads & Architectes · équipes data & IA.
 
-**Entreprises**
-- Startups & scale-ups
-- PME & grandes entreprises
-- Cabinets de conseil
-
-**Éducation**
-- Universités & grandes écoles
-- Écoles d'ingénieurs
-- Centres de formation professionnelle
-
-**Secteur Public & Institutions**
-- Ministères & agences publiques
-- Organisations nationales/régionales
-- Établissements publics
-
-**Tiers-secteur**
-- ONG & associations
-- Fondations
-- Organisations internationales
-
-**Écosystème Innovation**
-- Incubateurs & accélérateurs
-- Hubs tech & clusters
+Publics : entreprises, écoles & universités, secteur public, ONG et écosystème innovation.
 
 ---
 
-## 👥 Profils participants
+## 🛠️ Axes possibles
 
-- Data Engineers
-- Analytics / Analytics Engineers
-- ML / AI Engineers
-- Data Scientists en phase d'industrialisation
-- Tech Leads & Architectes
-- Équipes data & IA pluridisciplinaires
-- Équipes en structuration de data platform
-
----
-
-## 🧩 Approche sur mesure — pas de catalogue standard
-
-Le contenu, le niveau et l'organisation sont définis **au cas par cas** selon :
-
-- le profil des participants
-- votre stack technique
-- vos cas d'usage
-- votre maturité data
-- vos priorités opérationnelles
-- mes disponibilités
-
-Chaque programme est construit pour être **directement applicable dans votre contexte réel**.
-
-Les parcours peuvent s'appuyer sur le socle du bootcamp **Data Engineering — From Zero to Hero** (fondations, Spark, Kafka, Lakehouse, dbt) et son **parcours Data pour l'IA** (RAG, embeddings, MLOps), adaptés au niveau et aux objectifs de vos équipes.
-
----
-
-## 🛠️ Axes thématiques possibles
-
-Selon les besoins, les interventions peuvent couvrir une combinaison de ces axes :
-
-| Axe | Focus possible |
-|------|----------------|
-| Architecture Data Moderne | Lakehouse, data platform, batch vs streaming, data architecture |
-| Industrialisation & DataOps | CI/CD data, tests, qualité, observabilité, fiabilisation pipelines |
-| Processing Distribué | Spark / PySpark / SQL distribué, performance & optimisation |
-| Streaming & Temps Réel | Kafka, pipelines événementiels, patterns streaming |
-| Orchestration | Airflow, Dagster, structuration workflows |
-| Qualité & Gouvernance Technique | Data quality, validation, monitoring, bonnes pratiques |
-| Performance & Coûts | optimisation traitements & usages infrastructure |
+| Axe | Focus |
+|-----|-------|
+| Architecture data moderne | Lakehouse, batch vs streaming, data platform |
+| Processing & performance | Spark / PySpark / SQL distribué, optimisation |
+| Streaming temps réel | Kafka, pipelines événementiels |
+| Orchestration & DataOps | Airflow, CI/CD data, tests, qualité, observabilité |
 | Data pour l'IA & MLOps | Pipelines RAG/LLM, embeddings, bases vectorielles, industrialisation ML |
 
-Les axes retenus sont ajustés au contexte de la mission.
+Les programmes peuvent s'appuyer sur le socle du bootcamp *Data Engineering — From Zero to Hero* et son parcours *Data pour l'IA*, adaptés à votre niveau.
 
 ---
 
-## 🧭 Démarche d'intervention
+## 🧭 Déroulé
 
-1. Échange de cadrage
-2. Analyse besoin & niveau équipe
-3. Définition des objectifs pédagogiques
-4. Proposition de programme adapté
-5. Validation faisabilité & disponibilité
-6. Intervention & support associé
+Cadrage → programme adapté → intervention pratique (labs, cas réels, revues de code) → support.
+Format et durée définis selon le contexte (présentiel ou distant).
 
 ---
 
-## 🖥️ Modalités d'intervention
+## 📞 Contact
 
-Les modalités (sessions techniques, workshops, accompagnement, format synchrone, présentiel ou distant) sont définies **au cas par cas** selon :
+Interventions acceptées en nombre limité.
 
-- le contexte
-- les objectifs
-- les contraintes opérationnelles
-- la localisation
-- mes disponibilités
-
-Aucun format standard n'est imposé.
-
----
-
-## ⏱️ Organisation & durée
-
-La durée et le rythme sont définis spécifiquement pour chaque demande : sessions ciblées, ateliers techniques, parcours progressif ou accompagnement structuré.
-
----
-
-## 🛠️ Approche pédagogique
-
-Approche fortement orientée pratique :
-
-- ✅ labs contextualisés
-- ✅ cas réels
-- ✅ exercices guidés
-- ✅ revues de code
-- ✅ patterns & anti-patterns
-- ✅ retours d'expérience production
-- ✅ bonnes pratiques d'ingénierie data & IA
-
-Les livrables pédagogiques sont définis selon la mission.
-
----
-
-## ✨ Points différenciants
-
-- ✅ Basé sur architectures et pipelines en production
-- ✅ Double vision architecture + delivery terrain
-- ✅ Expertise data platform moderne
-- ✅ Data pour l'IA : pipelines RAG/LLM, bases vectorielles, MLOps
-- ✅ Pédagogie éprouvée (bootcamp Data Engineering)
-- ✅ Approche sur mesure
-- ✅ Orientation autonomie équipes
-- ✅ Contexte africain & international
-
----
-
-## 📞 Demande de formation
-
-👉 **Contactez-moi sur LinkedIn** :  
+👉 **Contactez-moi sur LinkedIn** :
 🔗 [linkedin.com/in/mamadou-youssouf-diakite](https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/)
 
-Merci de préciser :
-
-- profils concernés
-- niveau estimé
-- contexte technique
-- objectifs prioritaires
-- contraintes calendrier
-
-Une réponse est apportée après étude de faisabilité et de disponibilité.
-
 ---
 
-## ⚠️ Disponibilité
+**Mamadou Youssouf Diakité** · *Expert Data & IA*
 
-Les interventions formation sont acceptées en nombre limité, selon priorisation et calendrier.
-
----
-
-**Mamadou Youssouf Diakité**  
-*Expert Data & IA · Architecte de plateformes data*
-
----
-
-💡 Besoin d'expertise ou d'audit ?  
-Voir : [Consulting Data & IA](/consulting/)
+💡 [Consulting Data & IA →](/consulting/)
