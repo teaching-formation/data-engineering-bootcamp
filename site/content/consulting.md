@@ -2,13 +2,13 @@
 
 ## Expert Data & IA · Architecture
 
-J'accompagne les organisations à transformer leurs données en atout stratégique — de la **plateforme data** jusqu'aux **pipelines pour l'IA (LLM, RAG, ML)** — via des architectures robustes, scalables et alignées sur la valeur métier.
+Nous accompagnons les organisations à transformer leurs données en atout stratégique — de la **plateforme data** jusqu'aux **pipelines pour l'IA (LLM, RAG, ML)** — via des architectures robustes, scalables et alignées sur la valeur métier.
 
-Une expérience terrain solide en Data Engineering et architecture à grande échelle, dont un rôle de **Tech Lead Data Engineering** (plateformes en production, management d'une équipe de 15+ ingénieurs).
+Une expertise forgée sur le terrain en Data Engineering et architecture à grande échelle : plateformes en production et pilotage d'équipes data (15+ ingénieurs).
 
 ---
 
-## 🎯 Mon expertise
+## 🎯 Notre expertise
 
 - **Architecture & plateformes data** — Lakehouse (Delta, Iceberg), pipelines batch & streaming, cloud & Kubernetes
 - **Audit & optimisation** — diagnostic technique, performance Spark/SQL, réduction des coûts, fiabilisation des pipelines
@@ -24,21 +24,21 @@ Spark · Kafka · Airflow · Delta Lake · Iceberg · dbt · Docker · Kubernete
 
 ---
 
-## ✨ Pourquoi moi
+## ✨ Pourquoi nous
 
 - Vision **architecture + delivery terrain** (production à grande échelle)
 - Expertise avancée : data platform, streaming, Lakehouse, **data pour l'IA**
-- Pilotage d'équipes data (15+ ingénieurs)
+- Expérience de pilotage d'équipes data (15+ ingénieurs)
 - Approche pragmatique, orientée résultats
-- Pédagogue : créateur du bootcamp *Data Engineering — From Zero to Hero*
+- Pédagogie : créateurs du bootcamp *Data Engineering — From Zero to Hero*
 
 ---
 
 ## 📬 Contact
 
-Missions sélectionnées en nombre limité : audit, architecture, optimisation, formation.
+Nous sélectionnons un nombre limité de missions : audit, architecture, optimisation, formation.
 
-👉 **Contactez-moi sur LinkedIn** :
+👉 **Contactez-nous sur LinkedIn** :
 🔗 [linkedin.com/in/mamadou-youssouf-diakite](https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/)
 
 *Réponse sous 48h.*

@@ -2,7 +2,7 @@
 
 ## Renforcer les compétences de vos équipes
 
-Je conçois et anime des **formations Data Engineering & IA sur mesure** pour entreprises, écoles et institutions — alignées sur vos environnements techniques réels et vos objectifs de montée en compétence.
+Nous concevons et animons des **formations Data Engineering & IA sur mesure** pour entreprises, écoles et institutions — alignées sur vos environnements techniques réels et vos objectifs de montée en compétence.
 
 Objectif : rendre vos équipes **autonomes, rigoureuses et opérationnelles**.
 
@@ -41,7 +41,7 @@ Format et durée définis selon le contexte (présentiel ou distant).
 
 Interventions acceptées en nombre limité.
 
-👉 **Contactez-moi sur LinkedIn** :
+👉 **Contactez-nous sur LinkedIn** :
 🔗 [linkedin.com/in/mamadou-youssouf-diakite](https://www.linkedin.com/in/mamadou-youssouf-diakite-083630135/)
 
 ---
