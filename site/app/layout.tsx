@@ -30,10 +30,16 @@ export const metadata: Metadata = {
     siteName: "Bootcamp Data Engineering",
     title: "Bootcamp Data Engineering — From Zero to Hero",
     description: "Du débutant au Senior Engineer : Python, SQL, Spark, Kafka, Kubernetes, Lakehouse et IA.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Bootcamp Data Engineering — From Zero to Hero" }],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@diakite_data",
+    images: ["/og.png"],
+  },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   robots: { index: true, follow: true },
 };
@@ -42,7 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           dangerouslySetInnerHTML={{
             __html: `try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}`,

@@ -14,6 +14,7 @@ export const PAGES: PageDef[] = [
   { slug: "setup", title: "Setup de l'environnement" },
   { slug: "faq", title: "FAQ" },
   { slug: "links", title: "Liens utiles" },
+  { slug: "mentions-legales", title: "Mentions légales & Confidentialité" },
 ];
 
 const CONTENT_DIR = path.join(process.cwd(), "content");

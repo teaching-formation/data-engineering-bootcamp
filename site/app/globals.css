@@ -888,6 +888,38 @@ body.toc-collapsed .toc__ico {
   display: inline-block;
 }
 
+/* Page 404 */
+.notfound {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 90px 24px 110px;
+  text-align: center;
+}
+.notfound__code {
+  font-size: 88px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.notfound__title {
+  font-size: 28px;
+  margin: 8px 0 10px;
+}
+.notfound__text {
+  color: var(--text-soft);
+  margin: 0 0 26px;
+}
+.notfound__cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ============================================================
    HOME
    ============================================================ */

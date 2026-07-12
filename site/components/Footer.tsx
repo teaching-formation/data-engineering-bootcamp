@@ -40,9 +40,12 @@ export default function Footer() {
 
       <div className="site-footer__bottom">
         <p>
-          Créé par <strong>MAMADOU YOUSSOUF DIAKITE</strong> · © 2026 From Zero to Hero
+          Créé par <strong>Mamadou Youssouf Diakité</strong> · © 2026 From Zero to Hero
         </p>
-        <p>Contenu sous licence CC BY-NC-SA 4.0 · Usage commercial interdit</p>
+        <p>
+          Contenu sous licence CC BY-NC-SA 4.0 · Usage commercial interdit ·{" "}
+          <Link href="/mentions-legales/">Mentions légales</Link>
+        </p>
       </div>
     </footer>
   );
