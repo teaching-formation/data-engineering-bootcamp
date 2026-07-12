@@ -6,7 +6,6 @@ import { prevNext, levelOf } from "@/lib/nav";
 import TableOfContents from "@/components/TableOfContents";
 import CopyButtons from "@/components/CopyButtons";
 import PrintButton from "@/components/PrintButton";
-import Comments from "@/components/Giscus";
 
 export const dynamicParams = false;
 
@@ -70,7 +69,20 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
           )}
         </nav>
 
-        <Comments />
+        <aside className="community-cta">
+          <p className="community-cta__title">💬 Une question sur ce module ?</p>
+          <p className="community-cta__text">
+            Rejoins la communauté pour échanger, poser tes questions et progresser avec d&apos;autres apprenants.
+          </p>
+          <a
+            className="btn btn--primary community-cta__btn"
+            href="https://t.me/fromzerotoherodataeng"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Rejoindre la communauté Telegram →
+          </a>
+        </aside>
       </article>
 
       <TableOfContents toc={nb.toc} />

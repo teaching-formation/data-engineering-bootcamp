@@ -774,10 +774,25 @@ body.toc-collapsed .toc__ico {
 .prevnext .next {
   text-align: right;
 }
-.comments {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
+.community-cta {
+  margin-top: 44px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-soft));
+  text-align: center;
+}
+.community-cta__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.community-cta__text {
+  color: var(--text-soft);
+  margin: 0 0 16px;
+}
+.community-cta__btn {
+  display: inline-flex;
 }
 
 /* ============================================================
