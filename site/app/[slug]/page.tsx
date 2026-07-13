@@ -18,7 +18,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const page = getPage(slug);
   if (!page) return { title: "Page introuvable" };
-  return { title: page.title, description: `${page.title} — Bootcamp Data Engineering.` };
+  return {
+    title: page.title,
+    description: `${page.title} — Bootcamp Data Engineering.`,
+    alternates: { canonical: `/${slug}/` },
+  };
 }
 
 export default async function InfoPage({ params }: { params: Promise<{ slug: string }> }) {

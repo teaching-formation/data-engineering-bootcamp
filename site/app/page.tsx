@@ -1,5 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { NAV } from "@/lib/nav";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const COURSE_LD = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Bootcamp Data Engineering — From Zero to Hero",
+  description:
+    "Programme complet Data Engineering, du débutant au Senior Engineer : Python, SQL, Spark, Kafka, Kubernetes, Lakehouse, dbt et Data Engineering for AI. Modules pratiques, du terminal Linux jusqu'à un pipeline RAG complet.",
+  provider: {
+    "@type": "Organization",
+    name: "From Zero to Hero",
+    url: "https://dataeng.from0tohero.dev",
+  },
+  url: "https://dataeng.from0tohero.dev",
+  inLanguage: "fr-FR",
+  isAccessibleForFree: true,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+  },
+};
 
 const SKILLS = [
   { icon: "🐍", name: "Python", desc: "pandas · PySpark · FastAPI" },
@@ -16,6 +43,10 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(COURSE_LD) }}
+      />
       <section className="hero">
         <div className="hero__grid" aria-hidden />
         <div className="hero__inner">

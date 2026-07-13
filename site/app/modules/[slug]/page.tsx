@@ -24,9 +24,12 @@ export async function generateMetadata({
   return {
     title: nb.title,
     description: `${nb.item.title} — Bootcamp Data Engineering.`,
+    alternates: { canonical: `/modules/${slug}/` },
     openGraph: { title: nb.title, description: `${nb.item.title} — Bootcamp Data Engineering.` },
   };
 }
+
+const SITE = "https://dataeng.from0tohero.dev";
 
 export default async function ModulePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -36,8 +39,22 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
   const { prev, next } = prevNext(slug);
   const level = levelOf(slug);
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: level?.label ?? "Programme", item: `${SITE}/curriculum/` },
+      { "@type": "ListItem", position: 3, name: nb.title, item: `${SITE}/modules/${slug}/` },
+    ],
+  };
+
   return (
     <div className="doc">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <article className="doc__main">
         <div className="module-header">
           <p className="module-header__crumb">{level?.label}</p>

@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "highlight.js/styles/base16/dracula.css";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -11,8 +11,6 @@ import GoogleTranslate from "@/components/GoogleTranslate";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-jb", display: "swap" });
-
-const GA_ID = "G-NZSBZFMZN7";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dataeng.from0tohero.dev"),
@@ -38,11 +36,41 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   robots: { index: true, follow: true },
 };
+
+export const viewport: Viewport = {
+  themeColor: "#0f172a",
+};
+
+const JSON_LD = [
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "Bootcamp Data Engineering — From Zero to Hero",
+    url: "https://dataeng.from0tohero.dev",
+    logo: "https://dataeng.from0tohero.dev/icon-512.png",
+    description:
+      "Programme complet Data Engineering — du débutant au Senior Engineer : Python, SQL, Spark, Kafka, Kubernetes, Lakehouse, dbt et IA.",
+    sameAs: [
+      "https://github.com/teaching-formation/data-engineering-bootcamp",
+      "https://t.me/fromzerotoherodataeng",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Bootcamp Data Engineering",
+    url: "https://dataeng.from0tohero.dev",
+    inLanguage: "fr-FR",
+  },
+];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -55,19 +83,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
+        <a href="#main" className="skip-link">
+          Aller au contenu
+        </a>
         <ReadingProgress />
         <Header />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <div style={{ display: "none" }}>
           <GoogleTranslate />
         </div>
         <Footer />
         <BackToTop />
-
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
-        </Script>
+        <Analytics />
       </body>
     </html>
   );
