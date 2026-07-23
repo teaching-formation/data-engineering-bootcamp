@@ -42,10 +42,6 @@ export default function Header() {
               <Link href="/support/">☕ Soutenir le projet</Link>
             </div>
           </div>
-
-          <a className="nav-cross" href="https://dataana.from0tohero.dev" target="_blank" rel="noreferrer">
-            📊 Data Analyst ↗
-          </a>
         </nav>
 
         <div className="site-header__actions">

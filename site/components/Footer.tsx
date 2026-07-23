@@ -27,9 +27,6 @@ export default function Footer() {
           <a href="https://t.me/fromzerotoherodataeng" target="_blank" rel="noreferrer">
             Telegram
           </a>
-          <a href="https://dataana.from0tohero.dev" target="_blank" rel="noreferrer">
-            📊 Bootcamp Data Analyst ↗
-          </a>
         </div>
       </div>
 

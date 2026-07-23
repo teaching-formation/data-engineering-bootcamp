@@ -20,7 +20,7 @@ Le bootcamp est gratuit et le restera. Voici comment tu peux aider :
 - 🔗 **Partager** sur LinkedIn, Twitter, WhatsApp
 - 💬 **Aider** d'autres apprenants sur Telegram
 - 📝 **Témoignage** de ton parcours avec le bootcamp
-- 🐛 **Signaler** bugs ou proposer des améliorations
+- 🐛 **Signaler** bugs ou proposer des améliorations via [Telegram](https://t.me/fromzerotoherodataeng)
 
 ---
 
