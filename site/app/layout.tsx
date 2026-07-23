@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
+    url: "https://dataeng.from0tohero.dev",
     siteName: "Bootcamp Data Engineering",
     title: "Bootcamp Data Engineering — From Zero to Hero",
     description: "Du débutant au Senior Engineer : Python, SQL, Spark, Kafka, Kubernetes, Lakehouse et IA.",

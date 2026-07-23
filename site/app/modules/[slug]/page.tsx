@@ -25,7 +25,11 @@ export async function generateMetadata({
     title: nb.title,
     description: `${nb.item.title} — Bootcamp Data Engineering.`,
     alternates: { canonical: `/modules/${slug}/` },
-    openGraph: { title: nb.title, description: `${nb.item.title} — Bootcamp Data Engineering.` },
+    openGraph: {
+      title: nb.title,
+      description: `${nb.item.title} — Bootcamp Data Engineering.`,
+      url: `/modules/${slug}/`,
+    },
   };
 }
 

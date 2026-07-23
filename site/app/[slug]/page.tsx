@@ -22,6 +22,11 @@ export async function generateMetadata({
     title: page.title,
     description: `${page.title} — Bootcamp Data Engineering.`,
     alternates: { canonical: `/${slug}/` },
+    openGraph: {
+      title: page.title,
+      description: `${page.title} — Bootcamp Data Engineering.`,
+      url: `/${slug}/`,
+    },
   };
 }
 
