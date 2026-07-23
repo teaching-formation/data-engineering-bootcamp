@@ -2,7 +2,7 @@
 
 > **💡 Vous ne trouvez pas votre réponse ?**
 >
-> Posez votre question dans les [GitHub Discussions](https://github.com/teaching-formation/data-engineering-bootcamp/discussions) ou utilisez les commentaires Giscus en bas de chaque page.
+> Posez votre question dans la [communauté Telegram](https://t.me/fromzerotoherodataeng) — on y répond et vous y croiserez d'autres apprenants.
 
 ---
 
@@ -400,14 +400,13 @@ java -version
 
 | Canal | Usage | Lien |
 |-------|-------|------|
-| **GitHub Issues** | Bugs, erreurs dans les notebooks | [Issues](https://github.com/teaching-formation/data-engineering-bootcamp/issues) |
-| **GitHub Discussions** | Questions générales, aide | [Discussions](https://github.com/teaching-formation/data-engineering-bootcamp/discussions) |
-| **Commentaires Giscus** | Questions sur un module spécifique | En bas de chaque page |
+| **Communauté Telegram** | Questions, aide, entraide entre apprenants | [Rejoindre](https://t.me/fromzerotoherodataeng) |
+| **Telegram** | Bugs, erreurs dans les notebooks, suggestions | [Signaler](https://t.me/fromzerotoherodataeng) |
 
 ### Avant de poser une question :
 
 1. ✅ Vérifier cette FAQ
-2. ✅ Chercher dans les Issues/Discussions existantes
+2. ✅ Chercher dans les échanges précédents de la communauté
 3. ✅ Googler l'erreur exacte
 4. ✅ Consulter la documentation officielle de l'outil
 

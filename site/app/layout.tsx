@@ -59,10 +59,7 @@ const JSON_LD = [
     logo: "https://dataeng.from0tohero.dev/icon-512.png",
     description:
       "Programme complet Data Engineering — du débutant au Senior Engineer : Python, SQL, Spark, Kafka, Kubernetes, Lakehouse, dbt et IA.",
-    sameAs: [
-      "https://github.com/teaching-formation/data-engineering-bootcamp",
-      "https://t.me/fromzerotoherodataeng",
-    ],
+    sameAs: ["https://t.me/fromzerotoherodataeng"],
   },
   {
     "@context": "https://schema.org",

@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-const GITHUB = "https://github.com/teaching-formation/data-engineering-bootcamp";
-
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -28,9 +26,6 @@ export default function Footer() {
           <h4>Communauté</h4>
           <a href="https://t.me/fromzerotoherodataeng" target="_blank" rel="noreferrer">
             Telegram
-          </a>
-          <a href={GITHUB} target="_blank" rel="noreferrer">
-            GitHub
           </a>
           <a href="https://dataana.from0tohero.dev" target="_blank" rel="noreferrer">
             📊 Bootcamp Data Analyst ↗
