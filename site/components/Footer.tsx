@@ -11,6 +11,7 @@ export default function Footer() {
         </div>
         <div className="site-footer__col">
           <h4>Ressources</h4>
+          <Link href="/entretien-questions/">Questions d&apos;entretien</Link>
           <Link href="/documentation/">Documentation</Link>
           <Link href="/setup/">Setup environnement</Link>
           <Link href="/faq/">FAQ</Link>

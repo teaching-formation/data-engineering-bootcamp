@@ -7,6 +7,7 @@ export type PageDef = { slug: string; title: string };
 
 export const PAGES: PageDef[] = [
   { slug: "curriculum", title: "Programme complet" },
+  { slug: "entretien-questions", title: "Questions d'entretien Data Engineer" },
   { slug: "consulting", title: "Consulting" },
   { slug: "formations", title: "Formations" },
   { slug: "support", title: "Soutenir le projet" },
