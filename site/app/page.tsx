@@ -112,6 +112,20 @@ export default function Home() {
             );
           })}
         </section>
+
+        <section className="interview-cta">
+          <div className="interview-cta__text">
+            <p className="interview-cta__kicker">🎯 Préparation entretien</p>
+            <h2>Le programme t&apos;apprend. L&apos;entretien te juge.</h2>
+            <p>
+              Des questions réellement posées en entretien Data Engineer, avec <strong>trois réponses graduées</strong> —
+              junior, confirmé, senior. Tu ne mémorises pas une réponse : tu comprends le niveau attendu.
+            </p>
+          </div>
+          <Link className="btn btn--primary" href="/entretien-questions/">
+            Voir les questions →
+          </Link>
+        </section>
       </div>
     </>
   );

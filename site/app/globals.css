@@ -960,6 +960,54 @@ body.toc-collapsed .toc__ico {
   color: var(--text-soft);
 }
 
+/* Bandeau "Préparation entretien" (accueil) */
+.interview-cta {
+  margin-top: 46px;
+  padding: 30px 32px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-2);
+  border-radius: 14px;
+  background: var(--bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.interview-cta__text {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+.interview-cta__kicker {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.interview-cta h2 {
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+.interview-cta__text p:last-child {
+  margin: 0;
+  color: var(--text-soft);
+  max-width: 62ch;
+}
+.interview-cta .btn {
+  flex: 0 0 auto;
+}
+@media (max-width: 640px) {
+  .interview-cta {
+    padding: 24px 20px;
+  }
+  .interview-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* HERO plein écran (dégradé de marque + grille) */
 .hero {
   position: relative;
