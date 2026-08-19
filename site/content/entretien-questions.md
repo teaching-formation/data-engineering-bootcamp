@@ -35,17 +35,10 @@ Chaque thème est une page courte : **5 questions**, une quinzaine de minutes. A
 | 📨 **[Streaming & Kafka](/entretien-streaming/)** | batch vs streaming, partitions & ordre, garanties de livraison, watermark, idempotence | 5 |
 | 🏠 **[Lakehouse & formats de table](/entretien-lakehouse/)** | lake vs warehouse, médaillon, ACID/Delta/Iceberg, small files, partitionnement | 5 |
 | 🔄 **[Orchestration & CI/CD](/entretien-orchestration/)** | Airflow vs cron, backfill, environnements, CI/CD data, alerting & astreinte | 5 |
+| ✅ **[Data Quality & gouvernance](/entretien-qualite/)** | dimensions de qualité, donnée fausse en prod, contrats, RGPD, data mesh | 5 |
+| 💬 **[Comportemental & posture](/entretien-comportemental/)** | incident, vulgarisation, désaccord, priorisation, questions à poser | 5 |
 
-👉 Commence par [🗄️ SQL & modélisation](/entretien-sql/) — chaque page se termine par un lien vers la suivante.
-
-## 🚧 La suite arrive
-
-De nouveaux thèmes sont ajoutés régulièrement. En préparation :
-
-| Thème | Questions |
-|---|---|
-| ✅ Data Quality & gouvernance | contrats, incidents, RGPD |
-| 💬 Comportemental & posture | incidents, désaccords, questions à poser |
+**40 questions au total.** 👉 Commence par [🗄️ SQL & modélisation](/entretien-sql/) — chaque page se termine par un lien vers la suivante.
 
 > 💬 **Une question t'a été posée en entretien et elle n'est pas là ?** Partage-la dans la [communauté Telegram](https://t.me/fromzerotoherodataeng) — les meilleures seront ajoutées.
 

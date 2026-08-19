@@ -253,3 +253,5 @@ Sur la culture, enfin : le post-mortem doit être **sans blâme** et déboucher 
 ← **Thème précédent** : [🏠 Lakehouse & formats de table](/entretien-lakehouse/)
 
 📋 [**Tous les thèmes**](/entretien-questions/)
+
+**Thème suivant** : [✅ Data Quality & gouvernance](/entretien-qualite/) →

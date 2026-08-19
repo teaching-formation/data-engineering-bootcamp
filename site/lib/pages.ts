@@ -14,6 +14,8 @@ export const PAGES: PageDef[] = [
   { slug: "entretien-streaming", title: "Entretien — Streaming & Kafka" },
   { slug: "entretien-lakehouse", title: "Entretien — Lakehouse & formats de table" },
   { slug: "entretien-orchestration", title: "Entretien — Orchestration & CI/CD" },
+  { slug: "entretien-qualite", title: "Entretien — Data Quality & gouvernance" },
+  { slug: "entretien-comportemental", title: "Entretien — Comportemental & posture" },
   { slug: "consulting", title: "Consulting" },
   { slug: "formations", title: "Formations" },
   { slug: "support", title: "Soutenir le projet" },
