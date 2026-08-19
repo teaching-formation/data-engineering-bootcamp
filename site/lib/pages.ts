@@ -8,6 +8,10 @@ export type PageDef = { slug: string; title: string };
 export const PAGES: PageDef[] = [
   { slug: "curriculum", title: "Programme complet" },
   { slug: "entretien-questions", title: "Questions d'entretien Data Engineer" },
+  { slug: "entretien-sql", title: "Entretien — SQL & modélisation" },
+  { slug: "entretien-python", title: "Entretien — Python & traitement de données" },
+  { slug: "entretien-spark", title: "Entretien — Spark & calcul distribué" },
+  { slug: "entretien-streaming", title: "Entretien — Streaming & Kafka" },
   { slug: "consulting", title: "Consulting" },
   { slug: "formations", title: "Formations" },
   { slug: "support", title: "Soutenir le projet" },
