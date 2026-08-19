@@ -243,3 +243,5 @@ Enfin, l'idempotence doit être **testée**, pas supposée : dans ma CI, rejouer
 ← **Thème précédent** : [⚡ Spark & calcul distribué](/entretien-spark/)
 
 📋 [**Tous les thèmes**](/entretien-questions/)
+
+**Thème suivant** : [🏠 Lakehouse & formats de table](/entretien-lakehouse/) →

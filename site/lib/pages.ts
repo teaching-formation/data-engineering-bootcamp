@@ -12,6 +12,8 @@ export const PAGES: PageDef[] = [
   { slug: "entretien-python", title: "Entretien — Python & traitement de données" },
   { slug: "entretien-spark", title: "Entretien — Spark & calcul distribué" },
   { slug: "entretien-streaming", title: "Entretien — Streaming & Kafka" },
+  { slug: "entretien-lakehouse", title: "Entretien — Lakehouse & formats de table" },
+  { slug: "entretien-orchestration", title: "Entretien — Orchestration & CI/CD" },
   { slug: "consulting", title: "Consulting" },
   { slug: "formations", title: "Formations" },
   { slug: "support", title: "Soutenir le projet" },

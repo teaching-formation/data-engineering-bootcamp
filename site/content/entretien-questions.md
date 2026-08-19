@@ -33,6 +33,8 @@ Chaque thème est une page courte : **5 questions**, une quinzaine de minutes. A
 | 🐍 **[Python & traitement de données](/entretien-python/)** | pandas/Polars/Spark, 50 Go sur 8 Go de RAM, tester un pipeline, vectorisation, structure de projet | 5 |
 | ⚡ **[Spark & calcul distribué](/entretien-spark/)** | lazy evaluation, shuffle, data skew, partitionnement, OutOfMemory | 5 |
 | 📨 **[Streaming & Kafka](/entretien-streaming/)** | batch vs streaming, partitions & ordre, garanties de livraison, watermark, idempotence | 5 |
+| 🏠 **[Lakehouse & formats de table](/entretien-lakehouse/)** | lake vs warehouse, médaillon, ACID/Delta/Iceberg, small files, partitionnement | 5 |
+| 🔄 **[Orchestration & CI/CD](/entretien-orchestration/)** | Airflow vs cron, backfill, environnements, CI/CD data, alerting & astreinte | 5 |
 
 👉 Commence par [🗄️ SQL & modélisation](/entretien-sql/) — chaque page se termine par un lien vers la suivante.
 
@@ -42,8 +44,6 @@ De nouveaux thèmes sont ajoutés régulièrement. En préparation :
 
 | Thème | Questions |
 |---|---|
-| 🏠 Lakehouse & formats de table | Delta vs Iceberg, MERGE, small files |
-| 🔄 Orchestration & CI/CD | Airflow, backfill, environnements |
 | ✅ Data Quality & gouvernance | contrats, incidents, RGPD |
 | 💬 Comportemental & posture | incidents, désaccords, questions à poser |
 
