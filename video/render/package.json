@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "studio": "remotion studio",
-    "render": "remotion render"
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Short"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.533",

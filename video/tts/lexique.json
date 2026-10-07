@@ -49,6 +49,10 @@
     "ELT": "eu-elle-té",
     "Data Engineer": "data inndjinieur",
     "Data Engineering": "data inndjinieringue",
-    "Data Engineers": "data inndjinieurs"
+    "Data Engineers": "data inndjinieurs",
+    "groupBy": "groupe baïe",
+    "broadcast": "brodcaste",
+    "join": "djoïne",
+    "filter": "filteur"
   }
 }

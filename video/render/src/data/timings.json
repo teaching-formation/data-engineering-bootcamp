@@ -1,0 +1,50 @@
+{
+  "id": "01-shuffle",
+  "engine": "piper",
+  "sample_rate": 44100,
+  "total_s": 48.484,
+  "segments": [
+    {
+      "id": "hook",
+      "niveau": null,
+      "debut_s": 0.0,
+      "duree_s": 4.917,
+      "fin_s": 4.917
+    },
+    {
+      "id": "narrow",
+      "niveau": null,
+      "debut_s": 5.367,
+      "duree_s": 5.968,
+      "fin_s": 11.334
+    },
+    {
+      "id": "wide",
+      "niveau": null,
+      "debut_s": 11.784,
+      "duree_s": 8.673,
+      "fin_s": 20.457
+    },
+    {
+      "id": "cout",
+      "niveau": null,
+      "debut_s": 20.907,
+      "duree_s": 11.157,
+      "fin_s": 32.064
+    },
+    {
+      "id": "twist",
+      "niveau": null,
+      "debut_s": 32.514,
+      "duree_s": 9.799,
+      "fin_s": 42.313
+    },
+    {
+      "id": "cta",
+      "niveau": null,
+      "debut_s": 42.763,
+      "duree_s": 5.271,
+      "fin_s": 48.034
+    }
+  ]
+}
