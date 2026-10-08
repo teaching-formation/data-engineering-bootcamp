@@ -13,3 +13,7 @@ out/
 voice/*.wav
 voice/*.mp3
 voice/*.m4a
+
+# Copies régénérées à chaque ./produire.sh (la source est dans scripts/ et out/)
+render/public/audio/
+render/src/data/
