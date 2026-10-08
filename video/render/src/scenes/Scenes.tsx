@@ -262,10 +262,91 @@ export const Cta: React.FC<{ v: any }> = ({ v }) => {
   );
 };
 
+/** Parcours vertical : la donnée descend d'une étape à l'autre. */
+export const Parcours: React.FC<{ v: any }> = ({ v }) => {
+  const frame = useCurrentFrame();
+  const n = v.etapes.length;
+  const avance = interpolate(frame, [10, 70], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  return (
+    <Cadre accent={v.accent}>
+      <div style={{ position: "relative", width: 840 }}>
+        {/* rail */}
+        <div style={{
+          position: "absolute", left: 76, top: 60, bottom: 60,
+          width: 6, background: "#1e293b", borderRadius: 3,
+        }} />
+        <div style={{
+          position: "absolute", left: 76, top: 60, width: 6,
+          height: `${avance * 100}%`, maxHeight: "calc(100% - 120px)",
+          background: `linear-gradient(${v.accent}, ${T.orange})`,
+          borderRadius: 3, boxShadow: `0 0 26px ${v.accent}`,
+        }} />
+
+        {v.etapes.map((e: any, i: number) => {
+          const seuil = i / Math.max(1, n - 1);
+          const actif = avance >= seuil - 0.02;
+          return (
+            <div key={e.titre} style={{
+              display: "flex", alignItems: "center", gap: 36,
+              marginBottom: i < n - 1 ? 110 : 0,
+              opacity: actif ? 1 : 0.32,
+              transform: `scale(${actif ? 1 : 0.94})`,
+            }}>
+              <div style={{
+                minWidth: 158, height: 158, borderRadius: "50%",
+                background: actif ? `${v.accent}26` : T.fondDoux,
+                border: `3px solid ${actif ? v.accent : "#334155"}`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 72,
+                boxShadow: actif ? `0 0 46px ${v.accent}55` : "none",
+              }}>{e.icone}</div>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ fontSize: 52, fontWeight: 800 }}>{e.titre}</div>
+                <div style={{ fontSize: 36, color: T.texteDoux, marginTop: 8 }}>{e.note}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Cadre>
+  );
+};
+
+/** Punch : une phrase, en grand, qui reste. */
+export const Punch: React.FC<{ v: any }> = ({ v }) => {
+  const a = useApparition(0);
+  const frame = useCurrentFrame();
+  return (
+    <Cadre accent={v.accent}>
+      <div style={{
+        opacity: a,
+        transform: `scale(${0.92 + a * 0.08})`,
+        fontSize: 86, fontWeight: 900, lineHeight: 1.25,
+        whiteSpace: "pre-line",
+        textShadow: `0 0 70px ${v.accent}40`,
+      }}>
+        {v.texte}
+      </div>
+      <div style={{
+        marginTop: 56, width: interpolate(frame, [16, 44], [0, 420], {
+          extrapolateLeft: "clamp", extrapolateRight: "clamp",
+        }),
+        height: 8, borderRadius: 4,
+        background: `linear-gradient(90deg, ${T.orange}, ${T.sky})`,
+      }} />
+    </Cadre>
+  );
+};
+
 export const SCENES: Record<string, React.FC<{ v: any }>> = {
   hook: Hook,
   partitions: Partitions,
   etapes: Etapes,
   conseils: Conseils,
+  parcours: Parcours,
+  punch: Punch,
   cta: Cta,
 };

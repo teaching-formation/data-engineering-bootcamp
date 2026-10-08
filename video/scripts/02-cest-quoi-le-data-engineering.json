@@ -1,0 +1,82 @@
+{
+  "id": "02-cest-quoi-le-data-engineering",
+  "titre": "C'est quoi le Data Engineering ?",
+  "format": "short-explication",
+  "orientation": "9:16",
+  "resolution": [1080, 1920],
+  "duree_cible_s": 50,
+  "source": "Saison 1 · n°1 — Module 01",
+  "youtube": {
+    "titre": "C'est quoi le Data Engineering ? (expliqué avec une seule transaction)",
+    "description_cta": "Le parcours complet, de zéro à senior, en accès libre : https://dataeng.from0tohero.dev/curriculum/",
+    "tags": ["data engineering", "data engineer", "métier data", "reconversion data", "pipeline de données"]
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "narration": "Quatorze heures trente-deux, Abidjan. Un paiement mobile money de cinq mille francs. Suis cette donnée.",
+      "visuel": {
+        "type": "hook",
+        "titre": "5 000 F",
+        "sous_titre": "14h32 · Abidjan\nSuis cette donnée.",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "trajet",
+      "narration": "Elle part d'un téléphone. Elle doit arriver dans un entrepôt de données. Entre les deux, rien n'est garanti.",
+      "visuel": {
+        "type": "parcours",
+        "etapes": [
+          { "icone": "📱", "titre": "Le téléphone", "note": "la transaction" },
+          { "icone": "❓", "titre": "Entre les deux…", "note": "rien n'est garanti" },
+          { "icone": "🏛️", "titre": "L'entrepôt", "note": "prête à l'analyse" }
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+    {
+      "id": "metier",
+      "narration": "Le Data Engineer construit la route. Il l'achemine, la nettoie, supprime les doublons, et garantit qu'elle arrive à l'heure. Tous les jours. Pour des millions de transactions.",
+      "visuel": {
+        "type": "etapes",
+        "etapes": ["Acheminer", "Nettoyer", "Dédupliquer", "Livrer à l'heure"],
+        "note": "le métier de Data Engineer",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "apres",
+      "narration": "Ensuite seulement, l'analyste la compte. Le data scientist prédit le prochain paiement. Et le dirigeant décide.",
+      "visuel": {
+        "type": "conseils",
+        "titre": "Ensuite seulement…",
+        "conseils": [
+          "L'analyste la compte",
+          "Le data scientist prédit",
+          "Le dirigeant décide"
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+    {
+      "id": "punch",
+      "narration": "Le Data Engineering, c'est ça : rendre la donnée fiable, avant que quiconque s'en serve.",
+      "visuel": {
+        "type": "punch",
+        "texte": "Rendre la donnée fiable\navant que quiconque\ns'en serve.",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "cta",
+      "narration": "Le parcours complet, de zéro à senior, est en accès libre. Le lien est en description.",
+      "visuel": {
+        "type": "cta",
+        "texte": "De zéro à senior",
+        "url": "dataeng.from0tohero.dev",
+        "accent": "#f97316"
+      }
+    }
+  ]
+}

@@ -1,78 +1,79 @@
 {
-  "id": "01-shuffle",
-  "titre": "Le shuffle — pourquoi ton job Spark est lent",
+  "id": "02-cest-quoi-le-data-engineering",
+  "titre": "C'est quoi le Data Engineering ?",
   "format": "short-explication",
   "orientation": "9:16",
   "resolution": [1080, 1920],
-  "duree_cible_s": 52,
-  "source": "Question 12 — /entretien-spark/ · Module 19-20",
+  "duree_cible_s": 50,
+  "source": "Saison 1 · n°1 — Module 01",
   "youtube": {
-    "titre": "Pourquoi ton job Spark est lent : le shuffle expliqué en 50 secondes",
-    "description_cta": "Le module Spark complet, en accès libre : https://dataeng.from0tohero.dev/modules/intermediate__19_pyspark_advanced/",
-    "tags": ["spark", "data engineering", "shuffle", "pyspark", "big data", "performance"]
+    "titre": "C'est quoi le Data Engineering ? (expliqué avec une seule transaction)",
+    "description_cta": "Le parcours complet, de zéro à senior, en accès libre : https://dataeng.from0tohero.dev/curriculum/",
+    "tags": ["data engineering", "data engineer", "métier data", "reconversion data", "pipeline de données"]
   },
   "segments": [
     {
       "id": "hook",
-      "narration": "Ton job Spark prend quarante minutes. Le coupable a un nom : le shuffle.",
+      "narration": "Quatorze heures trente-deux, Abidjan. Un paiement mobile money de cinq mille francs. Suis cette donnée.",
       "visuel": {
         "type": "hook",
-        "titre": "40 min",
-        "sous_titre": "Pourquoi ton job Spark\nest si lent ?",
+        "titre": "5 000 F",
+        "sous_titre": "14h32 · Abidjan\nSuis cette donnée.",
         "accent": "#f97316"
       }
     },
     {
-      "id": "narrow",
-      "narration": "Un filtre, ça ne coûte presque rien. Chaque partition travaille dans son coin, les données ne bougent pas.",
+      "id": "trajet",
+      "narration": "Elle part d'un téléphone. Elle doit arriver dans un entrepôt de données. Entre les deux, rien n'est garanti.",
       "visuel": {
-        "type": "partitions",
-        "etiquette": "NARROW · pas de mouvement",
-        "code": "df.filter(col(\"pays\") == \"CI\")",
-        "flux": "parallele",
-        "accent": "#22c55e"
-      }
-    },
-    {
-      "id": "wide",
-      "narration": "Mais un groupBy, ou une jointure, c'est autre chose. Il faut regrouper toutes les lignes d'une même clé au même endroit. Donc déplacer les données.",
-      "visuel": {
-        "type": "partitions",
-        "etiquette": "WIDE · tout se déplace",
-        "code": "df.groupBy(\"client_id\").sum()",
-        "flux": "croise",
-        "accent": "#ef4444"
-      }
-    },
-    {
-      "id": "cout",
-      "narration": "Et déplacer, ça veut dire : écrire sur disque, transférer par le réseau, relire. Pour chaque partition. C'est le coût dominant d'un job Spark. Et c'est aussi là qu'il casse.",
-      "visuel": {
-        "type": "etapes",
-        "etapes": ["Écrire sur disque", "Transférer par le réseau", "Relire"],
-        "note": "le coût dominant d'un job Spark",
-        "accent": "#ef4444"
-      }
-    },
-    {
-      "id": "twist",
-      "narration": "Le meilleur shuffle, c'est celui qu'on ne fait pas. Filtre avant, pas après. Et si une des deux tables est petite, diffuse-la : plus de shuffle du tout.",
-      "visuel": {
-        "type": "conseils",
-        "titre": "Le meilleur shuffle ?\nCelui qu'on ne fait pas.",
-        "conseils": [
-          "Filtrer AVANT la jointure",
-          "broadcast() si une table est petite"
+        "type": "parcours",
+        "etapes": [
+          { "icone": "📱", "titre": "Le téléphone", "note": "la transaction" },
+          { "icone": "❓", "titre": "Entre les deux…", "note": "rien n'est garanti" },
+          { "icone": "🏛️", "titre": "L'entrepôt", "note": "prête à l'analyse" }
         ],
         "accent": "#0ea5e9"
       }
     },
     {
+      "id": "metier",
+      "narration": "Le Data Engineer construit la route. Il l'achemine, la nettoie, supprime les doublons, et garantit qu'elle arrive à l'heure. Tous les jours. Pour des millions de transactions.",
+      "visuel": {
+        "type": "etapes",
+        "etapes": ["Acheminer", "Nettoyer", "Dédupliquer", "Livrer à l'heure"],
+        "note": "le métier de Data Engineer",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "apres",
+      "narration": "Ensuite seulement, l'analyste la compte. Le data scientist prédit le prochain paiement. Et le dirigeant décide.",
+      "visuel": {
+        "type": "conseils",
+        "titre": "Ensuite seulement…",
+        "conseils": [
+          "L'analyste la compte",
+          "Le data scientist prédit",
+          "Le dirigeant décide"
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+    {
+      "id": "punch",
+      "narration": "Le Data Engineering, c'est ça : rendre la donnée fiable, avant que quiconque s'en serve.",
+      "visuel": {
+        "type": "punch",
+        "texte": "Rendre la donnée fiable\navant que quiconque\ns'en serve.",
+        "accent": "#f97316"
+      }
+    },
+    {
       "id": "cta",
-      "narration": "Le module Spark complet est en accès libre. Le lien est en description.",
+      "narration": "Le parcours complet, de zéro à senior, est en accès libre. Le lien est en description.",
       "visuel": {
         "type": "cta",
-        "texte": "Module Spark complet",
+        "texte": "De zéro à senior",
         "url": "dataeng.from0tohero.dev",
         "accent": "#f97316"
       }

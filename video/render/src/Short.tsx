@@ -54,7 +54,7 @@ export const Short: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: T.fond }}>
-      <Audio src={staticFile("audio/01-shuffle.wav")} />
+      <Audio src={staticFile("audio/narration.wav")} />
 
       {timings.segments.map((seg: any) => {
         const v = visuels[seg.id];
