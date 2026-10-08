@@ -2,49 +2,49 @@
   "id": "02-cest-quoi-le-data-engineering",
   "engine": "piper",
   "sample_rate": 44100,
-  "total_s": 45.489,
+  "total_s": 51.572,
   "segments": [
     {
       "id": "hook",
       "niveau": null,
       "debut_s": 0.0,
-      "duree_s": 6.385,
-      "fin_s": 6.385
+      "duree_s": 9.712,
+      "fin_s": 9.712
     },
     {
-      "id": "trajet",
+      "id": "probleme",
       "niveau": null,
-      "debut_s": 6.835,
-      "duree_s": 6.67,
-      "fin_s": 13.505
+      "debut_s": 10.162,
+      "duree_s": 7.935,
+      "fin_s": 18.097
     },
     {
       "id": "metier",
       "niveau": null,
-      "debut_s": 13.955,
-      "duree_s": 10.757,
-      "fin_s": 24.712
+      "debut_s": 18.547,
+      "duree_s": 11.558,
+      "fin_s": 30.105
     },
     {
       "id": "apres",
       "niveau": null,
-      "debut_s": 25.162,
-      "duree_s": 7.523,
-      "fin_s": 32.685
+      "debut_s": 30.555,
+      "duree_s": 6.699,
+      "fin_s": 37.254
     },
     {
       "id": "punch",
       "niveau": null,
-      "debut_s": 33.135,
-      "duree_s": 5.544,
-      "fin_s": 38.679
+      "debut_s": 37.704,
+      "duree_s": 7.041,
+      "fin_s": 44.745
     },
     {
       "id": "cta",
       "niveau": null,
-      "debut_s": 39.129,
-      "duree_s": 5.909,
-      "fin_s": 45.039
+      "debut_s": 45.195,
+      "duree_s": 5.927,
+      "fin_s": 51.122
     }
   ]
 }

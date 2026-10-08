@@ -6,38 +6,44 @@
   "resolution": [1080, 1920],
   "duree_cible_s": 50,
   "source": "Saison 1 · n°1 — Module 01",
+  "note_editoriale": "La définition doit paraître UNIVERSELLE : on montre 4 secteurs qui posent le même problème, plutôt qu'un cas particulier qui ferait croire à une spécialité.",
   "youtube": {
-    "titre": "C'est quoi le Data Engineering ? (expliqué avec une seule transaction)",
+    "titre": "C'est quoi le Data Engineering ? (en 45 secondes, tous secteurs confondus)",
     "description_cta": "Le parcours complet, de zéro à senior, en accès libre : https://dataeng.from0tohero.dev/curriculum/",
     "tags": ["data engineering", "data engineer", "métier data", "reconversion data", "pipeline de données"]
   },
   "segments": [
     {
       "id": "hook",
-      "narration": "Quatorze heures trente-deux, Abidjan. Un paiement mobile money de cinq mille francs. Suis cette donnée.",
+      "narration": "Un paiement. Une commande en ligne. Un dossier patient. Un capteur d'usine. Quatre secteurs qui n'ont rien à voir. Exactement le même problème.",
       "visuel": {
-        "type": "hook",
-        "titre": "5 000 F",
-        "sous_titre": "14h32 · Abidjan\nSuis cette donnée.",
+        "type": "domaines",
+        "domaines": [
+          { "icone": "💳", "label": "Banque" },
+          { "icone": "🛒", "label": "E-commerce" },
+          { "icone": "🏥", "label": "Santé" },
+          { "icone": "🏭", "label": "Industrie" }
+        ],
+        "titre": "Le même problème",
         "accent": "#f97316"
       }
     },
     {
-      "id": "trajet",
-      "narration": "Elle part d'un téléphone. Elle doit arriver dans un entrepôt de données. Entre les deux, rien n'est garanti.",
+      "id": "probleme",
+      "narration": "Cette donnée naît quelque part. Elle doit arriver ailleurs : propre, complète, à l'heure. Entre les deux, rien n'est garanti.",
       "visuel": {
         "type": "parcours",
         "etapes": [
-          { "icone": "📱", "titre": "Le téléphone", "note": "la transaction" },
+          { "icone": "⚡", "titre": "Elle naît", "note": "appli, capteur, formulaire" },
           { "icone": "❓", "titre": "Entre les deux…", "note": "rien n'est garanti" },
-          { "icone": "🏛️", "titre": "L'entrepôt", "note": "prête à l'analyse" }
+          { "icone": "🏛️", "titre": "Elle doit arriver", "note": "propre · complète · à l'heure" }
         ],
         "accent": "#0ea5e9"
       }
     },
     {
       "id": "metier",
-      "narration": "Le Data Engineer construit la route. Il l'achemine, la nettoie, supprime les doublons, et garantit qu'elle arrive à l'heure. Tous les jours. Pour des millions de transactions.",
+      "narration": "Le Data Engineer construit cette route. Il achemine, il nettoie, il supprime les doublons, et il garantit la livraison. Tous les jours. Que ce soit mille lignes ou un milliard.",
       "visuel": {
         "type": "etapes",
         "etapes": ["Acheminer", "Nettoyer", "Dédupliquer", "Livrer à l'heure"],
@@ -47,12 +53,12 @@
     },
     {
       "id": "apres",
-      "narration": "Ensuite seulement, l'analyste la compte. Le data scientist prédit le prochain paiement. Et le dirigeant décide.",
+      "narration": "Ensuite seulement, l'analyste compte. Le data scientist prédit. Et le dirigeant décide.",
       "visuel": {
         "type": "conseils",
         "titre": "Ensuite seulement…",
         "conseils": [
-          "L'analyste la compte",
+          "L'analyste compte",
           "Le data scientist prédit",
           "Le dirigeant décide"
         ],
@@ -61,7 +67,7 @@
     },
     {
       "id": "punch",
-      "narration": "Le Data Engineering, c'est ça : rendre la donnée fiable, avant que quiconque s'en serve.",
+      "narration": "Le Data Engineering, c'est ça : rendre la donnée fiable avant que quiconque s'en serve. Quel que soit le secteur.",
       "visuel": {
         "type": "punch",
         "texte": "Rendre la donnée fiable\navant que quiconque\ns'en serve.",

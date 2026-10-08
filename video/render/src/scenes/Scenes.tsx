@@ -315,6 +315,60 @@ export const Parcours: React.FC<{ v: any }> = ({ v }) => {
   );
 };
 
+/** Domaines : plusieurs secteurs qui convergent vers un même problème. */
+export const Domaines: React.FC<{ v: any }> = ({ v }) => {
+  const frame = useCurrentFrame();
+  const convergence = interpolate(frame, [26, 62], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  return (
+    <Cadre accent={v.accent}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 30, justifyContent: "center", maxWidth: 900 }}>
+        {v.domaines.map((d: any, i: number) => {
+          const a = useApparition(i * 9);
+          return (
+            <div key={d.label} style={{
+              opacity: a,
+              transform: `translateY(${(1 - a) * 26}px)`,
+              width: 390, padding: "34px 20px",
+              background: T.fondDoux,
+              border: `2px solid ${v.accent}44`,
+              borderRadius: 24,
+              display: "flex", alignItems: "center", gap: 24,
+            }}>
+              <div style={{ fontSize: 76 }}>{d.icone}</div>
+              <div style={{ fontSize: 46, fontWeight: 700, textAlign: "left" }}>{d.label}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* flèches de convergence */}
+      <svg width={880} height={150} style={{ marginTop: 10 }}>
+        {[-300, -100, 100, 300].map((dx, i) => (
+          <line
+            key={i}
+            x1={440 + dx} y1={10}
+            x2={440 + dx * (1 - convergence)} y2={10 + convergence * 120}
+            stroke={v.accent} strokeWidth={5} strokeLinecap="round"
+            opacity={convergence * 0.9}
+          />
+        ))}
+      </svg>
+
+      <div style={{
+        opacity: convergence,
+        transform: `scale(${0.9 + convergence * 0.1})`,
+        fontSize: 72, fontWeight: 900, color: v.accent,
+        textShadow: `0 0 60px ${v.accent}55`,
+      }}>
+        {v.titre}
+      </div>
+    </Cadre>
+  );
+};
+
 /** Punch : une phrase, en grand, qui reste. */
 export const Punch: React.FC<{ v: any }> = ({ v }) => {
   const a = useApparition(0);
@@ -346,6 +400,7 @@ export const SCENES: Record<string, React.FC<{ v: any }>> = {
   partitions: Partitions,
   etapes: Etapes,
   conseils: Conseils,
+  domaines: Domaines,
   parcours: Parcours,
   punch: Punch,
   cta: Cta,
