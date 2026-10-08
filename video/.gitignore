@@ -17,3 +17,6 @@ voice/*.m4a
 # Copies régénérées à chaque ./produire.sh (la source est dans scripts/ et out/)
 render/public/audio/
 render/src/data/
+
+# Poids des modèles de clonage (125 Mo, retéléchargeables)
+checkpoints_v2/
