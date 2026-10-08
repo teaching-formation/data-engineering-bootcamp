@@ -1,0 +1,459 @@
+{
+  "id": "L01-bash-pour-data-engineers",
+  "titre": "Bash pour Data Engineers — le cours complet",
+  "format": "long",
+  "orientation": "16:9",
+  "resolution": [1920, 1080],
+  "duree_cible_s": 800,
+  "source": "Module 02 — Bash pour Data Engineers",
+  "note_editoriale": "Reprend le module 02 section par section : définition, 9 chapitres pratiques, erreurs classiques. Les commandes affichées dans les terminaux sont celles du module.",
+  "youtube": {
+    "titre": "Bash pour Data Engineers : le cours complet (débutant → opérationnel)",
+    "description_cta": "Module 02 complet avec les exercices : https://dataeng.from0tohero.dev/modules/beginner__02_bash_for_data_engineers/",
+    "tags": ["bash", "shell", "data engineering", "linux", "terminal", "cron", "débutant"]
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "chapitre": 0,
+      "narration": "Tu veux fusionner cent fichiers CSV. Lancer un traitement toutes les nuits à deux heures. Trouver toutes les erreurs dans les logs du jour. Pour ces trois choses, il existe un seul outil. Et il est déjà installé sur ta machine.",
+      "visuel": {
+        "type": "hook",
+        "titre": "Bash",
+        "sous_titre": "Le couteau suisse\ndu Data Engineer",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "plan",
+      "chapitre": 0,
+      "narration": "Dans ce cours, on part de zéro. Naviguer, manipuler des fichiers, chercher, filtrer, enchaîner des commandes, écrire un script, et l'automatiser. À la fin, tu sauras écrire un script qui tourne tout seul chaque nuit.",
+      "visuel": {
+        "type": "tableau",
+        "titre": "Au programme",
+        "colonnes": ["", "Chapitre"],
+        "lignes": [
+          ["1-2", "Naviguer et manipuler des fichiers"],
+          ["3-4", "Lire, chercher, filtrer"],
+          ["5", "Pipes et redirections"],
+          ["6-7", "Variables, boucles, conditions"],
+          ["8-9", "Scripts et automatisation cron"]
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+
+    {
+      "id": "ch1-titre",
+      "chapitre": 1,
+      "narration": "Premier point : c'est quoi Bash, exactement.",
+      "visuel": { "type": "chapitre", "numero": "1", "titre": "C'est quoi Bash ?", "accent": "#f97316" }
+    },
+    {
+      "id": "ch1-def",
+      "chapitre": 1,
+      "narration": "Bash signifie Bourne Again Shell. C'est un langage de commande et de script, présent sur la quasi-totalité des systèmes Unix et Linux. Et sous Windows, tu y accèdes via WSL ou Git Bash.",
+      "visuel": {
+        "type": "punch",
+        "texte": "Bourne Again SHell",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "ch1-usages",
+      "chapitre": 1,
+      "narration": "Pourquoi c'est central pour un Data Engineer ? Parce que tout l'écosystème se pilote depuis le terminal. Lancer un pipeline, planifier un job nocturne, fusionner des fichiers, démarrer Docker ou Spark, analyser des logs.",
+      "visuel": {
+        "type": "tableau",
+        "titre": "Pourquoi un Data Engineer en a besoin",
+        "colonnes": ["Cas d'usage", "Exemple"],
+        "lignes": [
+          ["Lancer un pipeline", "python etl.py && echo OK"],
+          ["Planifier un job", "extraction chaque nuit à 2h"],
+          ["Manipuler des fichiers", "fusionner 100 CSV en un seul"],
+          ["Piloter des outils", "Docker, Spark, Airflow"],
+          ["Analyser des logs", "trouver les erreurs du jour"]
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+
+    {
+      "id": "ch2-titre",
+      "chapitre": 2,
+      "narration": "Chapitre deux : se déplacer.",
+      "visuel": { "type": "chapitre", "numero": "2", "titre": "Naviguer", "accent": "#0ea5e9" }
+    },
+    {
+      "id": "ch2-term",
+      "chapitre": 2,
+      "narration": "Trois commandes suffisent pour commencer. pwd t'indique où tu es. ls liste ce qu'il y a autour. cd te déplace. Avec l'option moins l et moins h, ls affiche les permissions, la taille et la date — c'est celle que tu utiliseras le plus.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "pwd" },
+          { "type": "sortie", "texte": "/home/youssouf/projet-data", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "ls -lh" },
+          { "type": "sortie", "texte": "-rw-r--r--  1 youssouf  staff   2.4K  ventes.csv", "couleur": "gris" },
+          { "type": "sortie", "texte": "-rw-r--r--  1 youssouf  staff   18K   logs.txt", "couleur": "gris" },
+          { "type": "sortie", "texte": "drwxr-xr-x  4 youssouf  staff   128B  scripts/", "couleur": "gris" }
+        ],
+        "legende": "pwd · ls · cd"
+      }
+    },
+    {
+      "id": "ch2-raccourcis",
+      "chapitre": 2,
+      "narration": "Et trois raccourcis à retenir tout de suite : cd tilde te ramène à ton dossier personnel, cd tiret te renvoie au dossier précédent, et cd point point remonte d'un niveau.",
+      "visuel": {
+        "type": "tableau",
+        "titre": "Les raccourcis à connaître",
+        "colonnes": ["Commande", "Effet"],
+        "lignes": [
+          ["cd ~", "dossier personnel"],
+          ["cd -", "dossier précédent"],
+          ["cd ..", "remonter d'un niveau"]
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+
+    {
+      "id": "ch3-titre",
+      "chapitre": 3,
+      "narration": "Chapitre trois : créer et manipuler des fichiers.",
+      "visuel": { "type": "chapitre", "numero": "3", "titre": "Manipuler des fichiers", "accent": "#22c55e" }
+    },
+    {
+      "id": "ch3-term",
+      "chapitre": 3,
+      "narration": "mkdir crée un dossier. Avec l'option moins p, il crée toute l'arborescence d'un coup, et surtout il ne renvoie pas d'erreur si le dossier existe déjà — c'est indispensable dans un script. touch crée un fichier vide, cp copie, mv déplace ou renomme.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "mkdir -p data/raw/2026" },
+          { "type": "commande", "texte": "touch data/raw/2026/ventes.csv" },
+          { "type": "commande", "texte": "cp data/raw/2026/ventes.csv data/backup.csv" },
+          { "type": "commande", "texte": "mv data/backup.csv data/ventes_v2.csv" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "ls data/" },
+          { "type": "sortie", "texte": "raw/   ventes_v2.csv", "couleur": "gris" }
+        ],
+        "legende": "mkdir -p · touch · cp · mv"
+      }
+    },
+    {
+      "id": "ch3-danger",
+      "chapitre": 3,
+      "narration": "Et maintenant la commande qui fait des dégâts : rm moins r f. Elle supprime un dossier et tout son contenu, sans confirmation et sans corbeille. Le réflexe à prendre dès aujourd'hui : avant de supprimer, remplace rm par echo pour voir exactement ce qui serait effacé.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "sortie", "texte": "# ❌ Ne fais JAMAIS ça sans vérifier", "couleur": "rouge" },
+          { "type": "commande", "texte": "rm -rf data/*.csv" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": "# ✅ Vérifie d'abord avec echo", "couleur": "vert" },
+          { "type": "commande", "texte": "echo data/*.csv" },
+          { "type": "sortie", "texte": "data/ventes_v2.csv data/clients.csv", "couleur": "gris" }
+        ],
+        "legende": "⚠️  pas de corbeille en Bash",
+        "accent": "#ef4444"
+      }
+    },
+
+    {
+      "id": "ch4-titre",
+      "chapitre": 4,
+      "narration": "Chapitre quatre : lire un fichier sans l'ouvrir.",
+      "visuel": { "type": "chapitre", "numero": "4", "titre": "Lire du contenu", "accent": "#a855f7" }
+    },
+    {
+      "id": "ch4-term",
+      "chapitre": 4,
+      "narration": "cat affiche tout le fichier — à éviter sur un gros volume. head montre les premières lignes, tail les dernières. Et wc moins l compte les lignes. Sur un fichier de plusieurs gigaoctets, head et tail sont tes amis : ils ne chargent rien en mémoire.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "head -3 ventes.csv" },
+          { "type": "sortie", "texte": "id,produit,quantite,prix", "couleur": "gris" },
+          { "type": "sortie", "texte": "1,Laptop,2,899.99", "couleur": "gris" },
+          { "type": "sortie", "texte": "2,Souris,5,24.50", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "wc -l ventes.csv" },
+          { "type": "sortie", "texte": "1247 ventes.csv", "couleur": "gris" }
+        ],
+        "legende": "cat · head · tail · wc -l"
+      }
+    },
+
+    {
+      "id": "ch5-titre",
+      "chapitre": 5,
+      "narration": "Chapitre cinq : chercher et filtrer. C'est là que Bash devient vraiment puissant.",
+      "visuel": { "type": "chapitre", "numero": "5", "titre": "Chercher & filtrer", "accent": "#f97316" }
+    },
+    {
+      "id": "ch5-grep",
+      "chapitre": 5,
+      "narration": "grep cherche un motif dans un fichier. Moins i ignore la casse, moins c compte les occurrences, moins n affiche les numéros de ligne, et moins v inverse la recherche : il montre les lignes qui ne contiennent pas le motif.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "grep \"Laptop\" ventes.csv" },
+          { "type": "sortie", "texte": "1,Laptop,2,899.99", "couleur": "gris" },
+          { "type": "sortie", "texte": "7,Laptop,1,899.99", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "grep -c \"Souris\" ventes.csv" },
+          { "type": "sortie", "texte": "18", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "grep -v \"Laptop\" ventes.csv | head -2" },
+          { "type": "sortie", "texte": "2,Souris,5,24.50", "couleur": "gris" }
+        ],
+        "legende": "grep -i -c -n -v"
+      }
+    },
+    {
+      "id": "ch5-find",
+      "chapitre": 5,
+      "narration": "find cherche des fichiers, pas du contenu. Tu lui donnes un dossier et un motif de nom. L'option moins mtime filtre sur la date de modification — très utile pour archiver ou nettoyer.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "find . -name \"*.csv\"" },
+          { "type": "sortie", "texte": "./data/ventes.csv", "couleur": "gris" },
+          { "type": "sortie", "texte": "./data/raw/2026/clients.csv", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": "# fichiers modifiés dans les dernières 24h", "couleur": "gris" },
+          { "type": "commande", "texte": "find . -mtime -1 -type f" },
+          { "type": "sortie", "texte": "./data/ventes.csv", "couleur": "gris" }
+        ],
+        "legende": "find -name · -mtime"
+      }
+    },
+    {
+      "id": "ch5-cut",
+      "chapitre": 5,
+      "narration": "Et trois outils pour traiter des colonnes : cut extrait une colonne, sort trie, uniq déduplique. Avec moins c, uniq compte même les occurrences.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "cut -d',' -f2 ventes.csv | tail -n +2 | sort | uniq -c" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": "  42 Clavier", "couleur": "gris" },
+          { "type": "sortie", "texte": " 118 Laptop", "couleur": "gris" },
+          { "type": "sortie", "texte": "  67 Souris", "couleur": "gris" },
+          { "type": "sortie", "texte": "  31 Écran", "couleur": "gris" }
+        ],
+        "legende": "cut · sort · uniq -c"
+      }
+    },
+
+    {
+      "id": "ch6-titre",
+      "chapitre": 6,
+      "narration": "Chapitre six : les pipes et les redirections. C'est le cœur de la philosophie Unix.",
+      "visuel": { "type": "chapitre", "numero": "6", "titre": "Pipes & redirections", "accent": "#0ea5e9" }
+    },
+    {
+      "id": "ch6-pipe",
+      "chapitre": 6,
+      "narration": "Le pipe, la barre verticale, envoie la sortie d'une commande dans l'entrée de la suivante. Chaque outil fait une seule chose, et tu les enchaînes. Voilà le top trois des produits les plus vendus, en une seule ligne.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "sortie", "texte": "# Top 3 des produits les plus vendus", "couleur": "gris" },
+          { "type": "commande", "texte": "cut -d',' -f2 ventes.csv | tail -n +2 | sort | uniq -c | sort -rn | head -3" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": " 118 Laptop", "couleur": "vert" },
+          { "type": "sortie", "texte": "  67 Souris", "couleur": "vert" },
+          { "type": "sortie", "texte": "  42 Clavier", "couleur": "vert" }
+        ],
+        "legende": "une ligne, cinq outils enchaînés",
+        "accent": "#22c55e"
+      }
+    },
+    {
+      "id": "ch6-redir",
+      "chapitre": 6,
+      "narration": "Les redirections écrivent dans un fichier au lieu de l'écran. Un chevron écrase le fichier. Deux chevrons ajoutent à la fin. Et deux chevron capture les erreurs plutôt que la sortie normale — c'est ce que tu utiliseras dans tes jobs cron pour garder une trace.",
+      "visuel": {
+        "type": "tableau",
+        "titre": "Les redirections",
+        "colonnes": ["Syntaxe", "Effet"],
+        "lignes": [
+          ["cmd > fichier", "écrit (écrase le contenu)"],
+          ["cmd >> fichier", "ajoute à la fin"],
+          ["cmd 2> erreurs.log", "capture les erreurs"],
+          ["cmd > sortie.log 2>&1", "capture tout"]
+        ],
+        "accent": "#0ea5e9"
+      }
+    },
+
+    {
+      "id": "ch7-titre",
+      "chapitre": 7,
+      "narration": "Chapitre sept : variables, boucles et conditions.",
+      "visuel": { "type": "chapitre", "numero": "7", "titre": "Variables & boucles", "accent": "#a855f7" }
+    },
+    {
+      "id": "ch7-var",
+      "chapitre": 7,
+      "narration": "Une variable s'écrit sans espace autour du égal. Avec un espace, Bash renvoie une erreur. Et quand tu l'utilises, mets toujours des guillemets autour : sans eux, un nom de fichier contenant un espace casse ton script.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "sortie", "texte": "# ❌ erreur de syntaxe", "couleur": "rouge" },
+          { "type": "sortie", "texte": "DOSSIER = /data", "couleur": "rouge" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": "# ✅ sans espaces, et avec guillemets à l'usage", "couleur": "vert" },
+          { "type": "commande", "texte": "DOSSIER=/data" },
+          { "type": "commande", "texte": "echo \"$DOSSIER\"" },
+          { "type": "sortie", "texte": "/data", "couleur": "gris" }
+        ],
+        "legende": "VAR=valeur · toujours \"$VAR\"",
+        "accent": "#22c55e"
+      }
+    },
+    {
+      "id": "ch7-boucle",
+      "chapitre": 7,
+      "narration": "La boucle for parcourt une liste de fichiers. Et la condition if teste quelque chose — ici, que le dossier existe avant d'écrire dedans. Ces deux structures suffisent à écrire la majorité des scripts d'un Data Engineer.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "for f in data/*.csv; do echo \"Traitement : $f\"; done" },
+          { "type": "sortie", "texte": "Traitement : data/ventes.csv", "couleur": "gris" },
+          { "type": "sortie", "texte": "Traitement : data/clients.csv", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "if [ -d \"data\" ]; then echo \"ok\"; else mkdir data; fi" },
+          { "type": "sortie", "texte": "ok", "couleur": "vert" }
+        ],
+        "legende": "for · if"
+      }
+    },
+
+    {
+      "id": "ch8-titre",
+      "chapitre": 8,
+      "narration": "Chapitre huit : transformer tout ça en script.",
+      "visuel": { "type": "chapitre", "numero": "8", "titre": "Écrire un script", "accent": "#22c55e" }
+    },
+    {
+      "id": "ch8-script",
+      "chapitre": 8,
+      "narration": "Un script commence toujours par le shebang : dièse point d'exclamation slash bin slash bash. Il indique quel interpréteur utiliser. Ensuite tu le rends exécutable avec chmod plus x, et tu le lances avec point slash.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~/projet-data",
+        "lignes": [
+          { "type": "commande", "texte": "cat traitement.sh" },
+          { "type": "sortie", "texte": "#!/bin/bash", "couleur": "orange" },
+          { "type": "sortie", "texte": "DOSSIER=\"data\"", "couleur": "gris" },
+          { "type": "sortie", "texte": "for f in \"$DOSSIER\"/*.csv; do", "couleur": "gris" },
+          { "type": "sortie", "texte": "  echo \"$(date) - traitement $f\"", "couleur": "gris" },
+          { "type": "sortie", "texte": "done", "couleur": "gris" },
+          { "type": "vide" },
+          { "type": "commande", "texte": "chmod +x traitement.sh && ./traitement.sh" },
+          { "type": "sortie", "texte": "2026-10-08 - traitement data/ventes.csv", "couleur": "vert" }
+        ],
+        "legende": "shebang · chmod +x · ./script.sh"
+      }
+    },
+
+    {
+      "id": "ch9-titre",
+      "chapitre": 9,
+      "narration": "Dernier chapitre : l'automatisation.",
+      "visuel": { "type": "chapitre", "numero": "9", "titre": "Automatiser avec cron", "accent": "#f97316" }
+    },
+    {
+      "id": "ch9-cron",
+      "chapitre": 9,
+      "narration": "Cron exécute un script à intervalle régulier. Une ligne de crontab, c'est cinq champs : minute, heure, jour du mois, mois, jour de la semaine. Puis la commande. Zéro deux étoile étoile étoile signifie : tous les jours à deux heures du matin.",
+      "visuel": {
+        "type": "tableau",
+        "titre": "Les expressions cron utiles",
+        "colonnes": ["Expression", "Quand", "Cas d'usage"],
+        "lignes": [
+          ["0 2 * * *", "chaque jour à 2h", "ETL nocturne"],
+          ["*/15 * * * *", "toutes les 15 min", "monitoring"],
+          ["0 0 * * 0", "dimanche à minuit", "rapport hebdo"],
+          ["0 */4 * * *", "toutes les 4 heures", "synchronisation"]
+        ],
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "ch9-term",
+      "chapitre": 9,
+      "narration": "crontab moins e ouvre l'éditeur, crontab moins l liste les tâches planifiées. Et surtout : redirige toujours la sortie vers un fichier de log. Sinon, le jour où le script échoue à deux heures du matin, tu n'auras aucune trace.",
+      "visuel": {
+        "type": "terminal",
+        "chemin": "~",
+        "lignes": [
+          { "type": "commande", "texte": "crontab -l" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": "# ETL quotidien à 2h", "couleur": "gris" },
+          { "type": "sortie", "texte": "0 2 * * * /home/user/etl.sh >> /var/log/etl.log 2>&1", "couleur": "orange" },
+          { "type": "vide" },
+          { "type": "sortie", "texte": "# Nettoyage des fichiers de plus de 7 jours", "couleur": "gris" },
+          { "type": "sortie", "texte": "0 4 * * * find /tmp -mtime +7 -delete", "couleur": "orange" }
+        ],
+        "legende": "toujours rediriger vers un log",
+        "accent": "#ef4444"
+      }
+    },
+
+    {
+      "id": "erreurs",
+      "chapitre": 10,
+      "narration": "Avant de conclure, les erreurs qui coûtent cher. Les trois premières ont déjà détruit des données en production chez beaucoup de monde.",
+      "visuel": {
+        "type": "tableau",
+        "titre": "Les erreurs classiques",
+        "colonnes": ["❌ Erreur", "💥 Conséquence", "✅ Bonne pratique"],
+        "lignes": [
+          ["rm -rf /", "efface tout le système", "vérifier le chemin avant"],
+          ["$fichier sans guillemets", "casse si espace dans le nom", "toujours \"$fichier\""],
+          ["VAR = valeur", "erreur de syntaxe", "VAR=valeur, sans espaces"],
+          ["oublier #!/bin/bash", "script mal interprété", "toujours le shebang"],
+          ["tester en production", "perte de données", "tester en sandbox"]
+        ],
+        "accent": "#ef4444"
+      }
+    },
+    {
+      "id": "outro",
+      "chapitre": 10,
+      "narration": "Tu sais maintenant naviguer, manipuler des fichiers, chercher, enchaîner des commandes, écrire un script et le planifier. C'est exactement ce qu'on attend d'un Data Engineer sur un terminal.",
+      "visuel": {
+        "type": "punch",
+        "texte": "Bash ne s'apprend pas.\nIl se pratique.",
+        "accent": "#f97316"
+      }
+    },
+    {
+      "id": "cta",
+      "chapitre": 10,
+      "narration": "Le module complet, avec les exercices, le mini-projet d'archivage et la cheatsheet, est en accès libre. Le lien est en description.",
+      "visuel": {
+        "type": "cta",
+        "texte": "Module 02 · exercices inclus",
+        "url": "dataeng.from0tohero.dev",
+        "accent": "#f97316"
+      }
+    }
+  ]
+}

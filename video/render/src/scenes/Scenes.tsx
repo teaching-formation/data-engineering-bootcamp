@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { T } from "../theme";
+import { Terminal } from "./Terminal";
 
 /* ───────────────── helpers ───────────────── */
 
@@ -10,13 +11,16 @@ const useApparition = (delai = 0) => {
   return spring({ frame: frame - delai, fps, config: { damping: 200 }, durationInFrames: 18 });
 };
 
-const Cadre: React.FC<{ children: React.ReactNode; accent?: string }> = ({ children, accent }) => (
+const Cadre: React.FC<{ children: React.ReactNode; accent?: string }> = ({ children, accent }) => {
+  const { width, height } = useVideoConfig();
+  const vertical = height > width;
+  return (
   <AbsoluteFill
     style={{
       background: `radial-gradient(ellipse at 50% 30%, ${accent ?? T.sky}18 0%, ${T.fond} 60%)`,
       fontFamily: T.police,
       color: T.texte,
-      padding: "140px 80px 420px",
+      padding: vertical ? "140px 80px 420px" : "90px 120px 160px",
       justifyContent: "center",
       alignItems: "center",
       textAlign: "center",
@@ -24,7 +28,8 @@ const Cadre: React.FC<{ children: React.ReactNode; accent?: string }> = ({ child
   >
     {children}
   </AbsoluteFill>
-);
+  );
+};
 
 const Etiquette: React.FC<{ texte: string; accent: string }> = ({ texte, accent }) => {
   const a = useApparition(0);
@@ -395,6 +400,94 @@ export const Punch: React.FC<{ v: any }> = ({ v }) => {
   );
 };
 
+/** Carte de chapitre : grand numéro + titre. */
+export const Chapitre: React.FC<{ v: any }> = ({ v }) => {
+  const a = useApparition(0);
+  const frame = useCurrentFrame();
+  return (
+    <Cadre accent={v.accent}>
+      <div style={{
+        opacity: a, transform: `translateY(${(1 - a) * 30}px)`,
+        display: "flex", alignItems: "center", gap: 46,
+      }}>
+        <div style={{
+          fontSize: 190, fontWeight: 900, color: v.accent, lineHeight: 1,
+          textShadow: `0 0 80px ${v.accent}60`,
+        }}>{v.numero}</div>
+        <div style={{ textAlign: "left" }}>
+          <div style={{ fontSize: 32, color: T.texteDoux, letterSpacing: 4, fontWeight: 700 }}>
+            CHAPITRE
+          </div>
+          <div style={{ fontSize: 86, fontWeight: 900, lineHeight: 1.1 }}>{v.titre}</div>
+        </div>
+      </div>
+      <div style={{
+        marginTop: 44,
+        width: interpolate(frame, [12, 40], [0, 520], {
+          extrapolateLeft: "clamp", extrapolateRight: "clamp",
+        }),
+        height: 7, borderRadius: 4,
+        background: `linear-gradient(90deg, ${v.accent}, transparent)`,
+      }} />
+    </Cadre>
+  );
+};
+
+/** Tableau générique : les lignes apparaissent l'une après l'autre. */
+export const Tableau: React.FC<{ v: any }> = ({ v }) => {
+  const nbCol = v.colonnes.length;
+  return (
+    <Cadre accent={v.accent}>
+      {v.titre && (
+        <div style={{
+          opacity: useApparition(0), fontSize: 58, fontWeight: 900,
+          marginBottom: 40, color: v.accent,
+        }}>{v.titre}</div>
+      )}
+      <div style={{ width: "100%", maxWidth: 1500 }}>
+        {/* en-tête */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: nbCol === 3 ? "1fr 1fr 1fr" : "minmax(260px, 0.9fr) 1.6fr",
+          gap: 20, padding: "0 26px 16px",
+          fontSize: 30, fontWeight: 800, color: T.texteDoux,
+          letterSpacing: 1, textTransform: "uppercase",
+          opacity: useApparition(4),
+        }}>
+          {v.colonnes.map((c: string, i: number) => (
+            <div key={i} style={{ textAlign: "left" }}>{c}</div>
+          ))}
+        </div>
+
+        {v.lignes.map((ligne: string[], i: number) => {
+          const a = useApparition(10 + i * 9);
+          return (
+            <div key={i} style={{
+              opacity: a, transform: `translateX(${(1 - a) * -30}px)`,
+              display: "grid",
+              gridTemplateColumns: nbCol === 3 ? "1fr 1fr 1fr" : "minmax(260px, 0.9fr) 1.6fr",
+              gap: 20, alignItems: "center",
+              background: i % 2 ? "transparent" : T.fondDoux,
+              border: `1px solid ${v.accent}22`,
+              borderRadius: 16, padding: "24px 26px", marginBottom: 12,
+            }}>
+              {ligne.map((cel: string, j: number) => (
+                <div key={j} style={{
+                  textAlign: "left",
+                  fontSize: j === 0 ? 36 : 34,
+                  fontWeight: j === 0 ? 800 : 500,
+                  color: j === 0 ? v.accent : T.texte,
+                  fontFamily: /[=*\/|>$]/.test(cel) ? T.policeMono : T.police,
+                }}>{cel}</div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
+    </Cadre>
+  );
+};
+
 export const SCENES: Record<string, React.FC<{ v: any }>> = {
   hook: Hook,
   partitions: Partitions,
@@ -404,4 +497,7 @@ export const SCENES: Record<string, React.FC<{ v: any }>> = {
   parcours: Parcours,
   punch: Punch,
   cta: Cta,
+  chapitre: Chapitre,
+  tableau: Tableau,
+  terminal: Terminal,
 };

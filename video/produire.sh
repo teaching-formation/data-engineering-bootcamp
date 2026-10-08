@@ -10,7 +10,9 @@ SCRIPT="${1:?usage: ./produire.sh scripts/NN-slug.json}"
 RACINE="$(cd "$(dirname "$0")" && pwd)"
 cd "$RACINE"
 
-ID=$(python3 -c "import json,sys; print(json.load(open('$SCRIPT'))['id'])")
+ID=$(python3 -c "import json; print(json.load(open('$SCRIPT'))['id'])")
+FORMAT=$(python3 -c "import json; print(json.load(open('$SCRIPT')).get('format','short'))")
+[ "$FORMAT" = "long" ] && COMPO="Cours" || COMPO="Short"
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 echo "▸ 1/3 — Narration (voix + lexique de prononciation)…"
@@ -22,13 +24,13 @@ cp "out/$ID/audio/full.wav" render/public/audio/narration.wav
 cp "out/$ID/timings.json"   render/src/data/timings.json
 cp "$SCRIPT"                render/src/data/script.json
 
-echo "▸ 3/3 — Rendu vidéo 1080×1920…"
+echo "▸ 3/3 — Rendu vidéo ($COMPO)…"
 cd render
-npx remotion render src/index.ts Short "../out/$ID/short.mp4" \
+npx remotion render src/index.ts "$COMPO" "../out/$ID/video.mp4" \
   --browser-executable="$CHROME" 2>&1 | tail -2
 
 cd "$RACINE"
 echo ""
-echo "✅ out/$ID/short.mp4"
-ffprobe -v error -show_entries format=duration -of csv=p=0 "out/$ID/short.mp4" \
+echo "✅ out/$ID/video.mp4"
+ffprobe -v error -show_entries format=duration -of csv=p=0 "out/$ID/video.mp4" \
   | awk '{printf "   durée : %.1fs\n", $1}'
