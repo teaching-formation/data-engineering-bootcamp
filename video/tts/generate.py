@@ -41,7 +41,24 @@ def charger_lexique():
     data = json.loads((RACINE / "tts" / "lexique.json").read_text())
     termes = data["termes"]
     # les expressions les plus longues d'abord (« MERGE INTO » avant « merge »)
-    return sorted(termes.items(), key=lambda kv: -len(kv[0]))
+    return sorted(termes.items(), key=lambda kv: -len(kv[0])), data.get("surveillance", [])
+
+
+def detecter_non_couverts(textes, lexique, surveillance):
+    """Alerte sur les mots anglais présents dans le script mais absents du lexique.
+
+    C'est le garde-fou : sans lui, un mot comme « playlist » part à la synthèse
+    et se fait lire à la française sans que personne ne s'en aperçoive.
+    """
+    couverts = {t.lower() for t, _ in lexique}
+    texte = " ".join(textes).lower()
+    manquants = []
+    for mot in surveillance:
+        if re.search(r"(?<!\w)" + re.escape(mot) + r"(?!\w)", texte):
+            # couvert soit directement, soit par une expression qui le contient
+            if not any(mot in c for c in couverts):
+                manquants.append(mot)
+    return sorted(set(manquants))
 
 
 def appliquer_lexique(texte, lexique):
@@ -106,7 +123,9 @@ def main():
     sortie = RACINE / "out" / script["id"]
     (sortie / "audio").mkdir(parents=True, exist_ok=True)
 
-    lexique = [] if args.no_lexique else charger_lexique()
+    lexique, surveillance = charger_lexique()
+    if args.no_lexique:
+        lexique = []
 
     if args.engine == "piper":
         moteur = MoteurPiper(args.voice or "fr_FR-tom-medium", args.speed)
@@ -117,7 +136,18 @@ def main():
     silence = np.zeros(int(sr * SILENCE_ENTRE_SEGMENTS_S), dtype=np.float32)
     timings, pleine, curseur, relu = [], [], 0.0, []
 
-    print(f"moteur : {moteur.nom} · lexique : {'off' if args.no_lexique else f'{len(lexique)} termes'}\n")
+    print(f"moteur : {moteur.nom} · lexique : {'off' if args.no_lexique else f'{len(lexique)} termes'}")
+
+    if lexique:
+        manquants = detecter_non_couverts(
+            [s["narration"] for s in script["segments"]], lexique, surveillance)
+        if manquants:
+            print("\n⚠️  MOTS ANGLAIS NON COUVERTS PAR LE LEXIQUE :")
+            for m in manquants:
+                print(f"      « {m} » sera lu à la française")
+            print("   → ajoute-les dans tts/lexique.json avant de publier\n")
+        else:
+            print("✅ tous les mots anglais surveillés sont couverts\n")
 
     for seg in script["segments"]:
         texte = appliquer_lexique(seg["narration"], lexique)
