@@ -14,17 +14,27 @@ ID=$(python3 -c "import json; print(json.load(open('$SCRIPT'))['id'])")
 FORMAT=$(python3 -c "import json; print(json.load(open('$SCRIPT')).get('format','short'))")
 [ "$FORMAT" = "long" ] && COMPO="Cours" || COMPO="Short"
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+VOIX="voice/sample.wav"      # ta voix ; si absent, on garde la voix Piper
+TAU=0.7
 
-echo "▸ 1/3 — Narration (voix + lexique de prononciation)…"
+echo "▸ 1/4 — Narration (voix + lexique de prononciation)…"
 ./.venv/bin/python tts/generate.py "$SCRIPT" --engine piper --speed 1.05 \
   2>&1 | grep -E "✅|^  [a-z]" || true
 
-echo "▸ 2/3 — Préparation des assets pour le rendu…"
-cp "out/$ID/audio/full.wav" render/public/audio/narration.wav
+AUDIO="out/$ID/audio/full.wav"
+if [ -f "$VOIX" ]; then
+  echo "▸ 2/4 — Application de ta voix (tau=$TAU)…"
+  ./.venv/bin/python tts/cloner.py "$AUDIO" "$VOIX" --tau "$TAU" \
+    --sortie "out/$ID/audio/full_clone.wav" 2>&1 | grep -E "^✅|segments" || true
+  AUDIO="out/$ID/audio/full_clone.wav"
+fi
+
+echo "▸ 3/4 — Préparation des assets pour le rendu…"
+cp "$AUDIO" render/public/audio/narration.wav
 cp "out/$ID/timings.json"   render/src/data/timings.json
 cp "$SCRIPT"                render/src/data/script.json
 
-echo "▸ 3/3 — Rendu vidéo ($COMPO)…"
+echo "▸ 4/4 — Rendu vidéo ($COMPO)…"
 cd render
 npx remotion render src/index.ts "$COMPO" "../out/$ID/video.mp4" \
   --browser-executable="$CHROME" 2>&1 | tail -2
