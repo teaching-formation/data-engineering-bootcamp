@@ -2,49 +2,49 @@
   "id": "02-cest-quoi-le-data-engineering",
   "engine": "piper",
   "sample_rate": 44100,
-  "total_s": 48.49,
+  "total_s": 52.019,
   "segments": [
     {
       "id": "hook",
       "niveau": null,
       "debut_s": 0.0,
-      "duree_s": 11.372,
-      "fin_s": 11.372
+      "duree_s": 11.558,
+      "fin_s": 11.558
     },
     {
       "id": "metier",
       "niveau": null,
-      "debut_s": 11.822,
-      "duree_s": 8.429,
-      "fin_s": 20.251
+      "debut_s": 12.008,
+      "duree_s": 11.767,
+      "fin_s": 23.774
     },
     {
       "id": "garanties",
       "niveau": null,
-      "debut_s": 20.701,
-      "duree_s": 6.13,
-      "fin_s": 26.831
+      "debut_s": 24.224,
+      "duree_s": 6.095,
+      "fin_s": 30.32
     },
     {
       "id": "chaine",
       "niveau": null,
-      "debut_s": 27.281,
-      "duree_s": 7.901,
-      "fin_s": 35.181
+      "debut_s": 30.77,
+      "duree_s": 7.866,
+      "fin_s": 38.635
     },
     {
       "id": "punch",
       "niveau": null,
-      "debut_s": 35.631,
-      "duree_s": 7.152,
-      "fin_s": 42.783
+      "debut_s": 39.085,
+      "duree_s": 7.239,
+      "fin_s": 46.324
     },
     {
       "id": "cta",
       "niveau": null,
-      "debut_s": 43.233,
-      "duree_s": 4.807,
-      "fin_s": 48.04
+      "debut_s": 46.774,
+      "duree_s": 4.795,
+      "fin_s": 51.569
     }
   ]
 }

@@ -29,7 +29,7 @@
     },
     {
       "id": "metier",
-      "narration": "Avant l'algorithme, il y a un pipeline. Quelqu'un l'a conçu, construit, et le maintient tous les jours. C'est le Data Engineer.",
+      "narration": "Tu penses intelligence artificielle, data scientist. Mais aucun modèle ne fonctionne sans données propres, complètes, et livrées à l'heure. Celui qui rend ça possible, c'est le Data Engineer.",
       "visuel": {
         "type": "etapes",
         "etapes": ["Concevoir", "Construire", "Maintenir", "Optimiser"],
