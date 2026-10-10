@@ -12,29 +12,35 @@ cd "$RACINE"
 
 ID=$(python3 -c "import json; print(json.load(open('$SCRIPT'))['id'])")
 FORMAT=$(python3 -c "import json; print(json.load(open('$SCRIPT')).get('format','short'))")
-[ "$FORMAT" = "long" ] && COMPO="Cours" || COMPO="Short"
+[ "$FORMAT" = "long" ] && DEFAUT="Cours" || DEFAUT="Short"
+# un script peut imposer sa composition (ex. « Tuto » pour les visuels d'artifact)
+COMPO=$(python3 -c "import json; print(json.load(open('$SCRIPT')).get('composition','$DEFAUT'))")
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 VOIX="voice/sample.wav"      # ta voix ; si absent, on garde la voix Piper
 TAU=0.7
 
-echo "▸ 1/4 — Narration (voix + lexique de prononciation)…"
+echo "▸ 1/5 — Narration (voix + lexique de prononciation)…"
 ./.venv/bin/python tts/generate.py "$SCRIPT" --engine piper --speed 1.05 \
   2>&1 | grep -E "✅|^  [a-z]" || true
 
 AUDIO="out/$ID/audio/full.wav"
 if [ -f "$VOIX" ]; then
-  echo "▸ 2/4 — Application de ta voix (tau=$TAU)…"
+  echo "▸ 2/5 — Application de ta voix (tau=$TAU)…"
   ./.venv/bin/python tts/cloner.py "$AUDIO" "$VOIX" --tau "$TAU" \
     --sortie "out/$ID/audio/full_clone.wav" 2>&1 | grep -E "^✅|segments" || true
   AUDIO="out/$ID/audio/full_clone.wav"
 fi
 
-echo "▸ 3/4 — Préparation des assets pour le rendu…"
+# depuis la narration d'origine, jamais le texte respelé du lexique
+echo "▸ 3/5 — Sous-titres (.srt)…"
+./.venv/bin/python tts/sous_titres.py "out/$ID" "$SCRIPT"
+
+echo "▸ 4/5 — Préparation des assets pour le rendu…"
 cp "$AUDIO" render/public/audio/narration.wav
 cp "out/$ID/timings.json"   render/src/data/timings.json
 cp "$SCRIPT"                render/src/data/script.json
 
-echo "▸ 4/4 — Rendu vidéo ($COMPO)…"
+echo "▸ 5/5 — Rendu vidéo ($COMPO)…"
 cd render
 npx remotion render src/index.ts "$COMPO" "../out/$ID/video.mp4" \
   --browser-executable="$CHROME" 2>&1 | tail -2

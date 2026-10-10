@@ -1,0 +1,195 @@
+{
+  "id": "L02-dbt-pour-debutants",
+  "titre": "dbt pour débutants — comprendre, installer, construire",
+  "format": "long",
+  "orientation": "16:9",
+  "composition": "Tuto",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "duree_cible_s": 385,
+  "source": "Artifact « Tuto pour débuter dbt » (15 scènes) — visuels et narration repris tels quels",
+  "note_editoriale": "Les visuels sont la HTML/CSS de l'artifact, rendue telle quelle : aspect-ratio 16/9 et unites cqw d'origine, donc aucune reprise de mise en page. Les animations d'entree (.a, .draw, .blink) sont pilotees par l'horloge d'images au lieu de l'horloge CSS, et leurs delais sont remappes sur la duree audio mesuree. Pas de sous-titres incrustes : les scenes sont deja denses en texte, les sous-titres partent dans un .srt separe.",
+  "youtube": {
+    "titre": "dbt pour débutants : comprendre et construire ton premier projet",
+    "description_cta": "Le module complet avec les exercices et le projet runnable : https://dataeng.from0tohero.dev/modules/intermediate__25_dbt_data_quality/",
+    "tags": [
+      "dbt",
+      "data engineering",
+      "sql",
+      "duckdb",
+      "elt",
+      "data quality",
+      "débutant",
+      "tutoriel"
+    ]
+  },
+  "segments": [
+    {
+      "id": "sc01",
+      "chapitre": 1,
+      "narration": "Bonjour ! Dans ce tutoriel, on va découvrir dbt, un outil devenu incontournable pour transformer des données. Aucune connaissance préalable n'est nécessaire. D'abord, on comprend l'idée. Ensuite, on construit ensemble un premier projet, sur votre propre ordinateur.",
+      "visuel": {
+        "type": "html",
+        "titre": "Bienvenue",
+        "html": "<div class=\"scene center\">\n  <p class=\"step a\">Tuto pour débuter</p>\n  <h2 class=\"hero a\" style=\"--d:.4s\">dbt</h2>\n  <p class=\"lead a\" style=\"--d:1.2s\">Comprendre l'idée, puis construire votre premier projet, pas à pas, sur votre propre ordinateur.</p>\n</div>",
+        "duree_artifact_s": 16.6
+      }
+    },
+    {
+      "id": "sc02",
+      "chapitre": 2,
+      "narration": "Imaginez une entreprise qui collecte des données : des ventes, des clients, des paiements. Ces données arrivent brutes et désordonnées. Pour les rendre utiles, des analystes écrivent des requêtes SQL. Mais souvent, ces requêtes sont éparpillées, mal nommées, jamais testées, et sans documentation. Résultat : plus personne ne sait quelle table dépend de quoi.",
+      "visuel": {
+        "type": "html",
+        "titre": "Le problème",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Le problème</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Des données brutes… et des requêtes éparpillées</h2>\n  <div class=\"messy\">\n    <div class=\"f a\" style=\"left:4%;top:8%;--d:1.5s\">requete_finale_v2.sql</div>\n    <div class=\"f a\" style=\"left:38%;top:2%;--d:2.2s\">calcul_ventes_OK.sql</div>\n    <div class=\"f a\" style=\"left:68%;top:14%;--d:2.9s\">NE_PAS_TOUCHER.sql</div>\n    <div class=\"f a\" style=\"left:14%;top:46%;--d:3.6s\">table_clients_bis</div>\n    <div class=\"f a\" style=\"left:52%;top:42%;--d:4.3s\">export_mars (copie).sql</div>\n    <div class=\"box rose a\" style=\"position:absolute;left:24%;right:24%;bottom:2%;text-align:center;--d:9s\"><b>Qui dépend de quoi ?</b>Personne ne sait vraiment. Rien n'est testé.</div>\n  </div>\n</div>",
+        "duree_artifact_s": 23.54
+      }
+    },
+    {
+      "id": "sc03",
+      "chapitre": 3,
+      "narration": "Pour bien comprendre, pensons à une cuisine. Les données brutes, ce sont les ingrédients. Vous écrivez des recettes en SQL, que dbt appelle des modèles. Et dbt exécute ces recettes dans le bon ordre, pour servir des plats prêts à consommer : des tables propres, utilisées par les tableaux de bord et les analystes.",
+      "visuel": {
+        "type": "html",
+        "titre": "L'analogie de la cuisine",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">L'idée en une image</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">dbt, c'est un chef bien organisé</h2>\n  <div class=\"row\">\n    <div class=\"box a\" style=\"--d:2.2s;flex:1\"><span class=\"emoji\">🥕</span><b>Les ingrédients</b>Les données brutes, telles qu'elles arrivent.</div>\n    <span class=\"arrow a\" style=\"--d:3.5s\">→</span>\n    <div class=\"box sun a\" style=\"--d:4.5s;flex:1\"><span class=\"emoji\">📜</span><b>Les recettes</b>Des requêtes SQL, appelées « modèles ».</div>\n    <span class=\"arrow a\" style=\"--d:7s\">→</span>\n    <div class=\"box teal a\" style=\"--d:8s;flex:1\"><span class=\"emoji\">🍽️</span><b>Les plats servis</b>Des tables propres, prêtes pour les tableaux de bord.</div>\n  </div>\n</div>",
+        "duree_artifact_s": 23.54
+      }
+    },
+    {
+      "id": "sc04",
+      "chapitre": 4,
+      "narration": "dbt signifie « data build tool ». Il ne fait qu'une chose, mais il la fait très bien : la transformation, le T de E, L, T. D'autres outils extraient les données et les chargent dans l'entrepôt de données. Ensuite, dbt les transforme directement à l'intérieur de cet entrepôt, avec du simple SQL.",
+      "visuel": {
+        "type": "html",
+        "titre": "dbt = le T de ELT",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Où se place dbt ?</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">dbt s'occupe d'une seule étape : transformer</h2>\n  <div class=\"row\">\n    <div class=\"box a\" style=\"--d:3s;flex:1;text-align:center\"><span class=\"emoji\">📥</span><b>E · Extract</b>On récupère les données des applications.</div>\n    <span class=\"arrow a\" style=\"--d:3.8s\">→</span>\n    <div class=\"box a\" style=\"--d:4.4s;flex:1;text-align:center\"><span class=\"emoji\">🗄️</span><b>L · Load</b>On les charge dans l'entrepôt de données.</div>\n    <span class=\"arrow a\" style=\"--d:5.4s\">→</span>\n    <div class=\"box sun a\" style=\"--d:6.4s;flex:1.2;text-align:center\"><span class=\"emoji\">✨</span><b>T · Transform</b>dbt les transforme <em>dans</em> l'entrepôt, en SQL. <br><span class=\"tag\" style=\"margin-top:.8cqw\">c'est ici</span></div>\n  </div>\n</div>",
+        "duree_artifact_s": 23.13
+      }
+    },
+    {
+      "id": "sc05",
+      "chapitre": 5,
+      "narration": "Premier concept : le modèle. Un modèle, c'est simplement un fichier point S Q L contenant une requête SELECT. Pas de CREATE TABLE, pas d'INSERT : vous décrivez le résultat voulu, et dbt se charge de créer la vue ou la table. Le nom du fichier devient le nom de l'objet dans la base.",
+      "visuel": {
+        "type": "html",
+        "titre": "Un modèle = un SELECT",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Concept n°1 : le modèle</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Un modèle, c'est un fichier .sql qui contient un SELECT</h2>\n  <div class=\"grid2\">\n    <div class=\"a\" style=\"--d:2.5s\">\n      <div class=\"file\">models/clients_actifs.sql</div>\n<pre class=\"code\"><span class=\"k\">select</span> id, nom, ville\n<span class=\"k\">from</span> clients\n<span class=\"k\">where</span> actif = <span class=\"k\">true</span></pre>\n    </div>\n    <div class=\"col\">\n      <div class=\"box a\" style=\"--d:6s\"><b>Vous écrivez</b>Seulement la requête SELECT.</div>\n      <div class=\"box teal a\" style=\"--d:8s\"><b>dbt s'occupe du reste</b>Il crée la vue ou la table <span class=\"tag\">clients_actifs</span> pour vous.</div>\n    </div>\n  </div>\n</div>",
+        "duree_artifact_s": 23.54
+      }
+    },
+    {
+      "id": "sc06",
+      "chapitre": 6,
+      "narration": "Deuxième concept, et c'est la vraie magie de dbt : la fonction ref. Au lieu d'écrire le nom d'une table en dur, vous écrivez ref, suivi du nom d'un autre modèle. Grâce à ça, dbt comprend qui dépend de qui. Il dessine tout seul un graphe de dépendances, qu'on appelle un DAG, et exécute les modèles dans le bon ordre.",
+      "visuel": {
+        "type": "html",
+        "titre": "ref() et le graphe",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Concept n°2 : ref()</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">On relie les modèles entre eux avec ref()</h2>\n  <div class=\"grid2\">\n    <div class=\"a\" style=\"--d:2s\">\n      <div class=\"file\">models/ventes_par_client.sql</div>\n<pre class=\"code\"><span class=\"k\">select</span> client, <span class=\"k\">sum</span>(montant)\n<span class=\"k\">from</span> <span class=\"j\">{{ ref('stg_commandes') }}</span>\n<span class=\"k\">group by</span> client</pre>\n    </div>\n    <svg viewBox=\"0 0 420 260\" style=\"width:100%;height:auto\" aria-label=\"Graphe des dépendances\">\n      <g font-family=\"JetBrains Mono, monospace\" font-size=\"14\" fill=\"#F4F7FB\">\n        <path class=\"draw\" style=\"--d:7s\" d=\"M130 70 C 170 70, 170 130, 205 130\" stroke=\"#F2B33D\" stroke-width=\"3\" fill=\"none\"/>\n        <path class=\"draw\" style=\"--d:7.4s\" d=\"M130 200 C 170 200, 170 130, 205 130\" stroke=\"#F2B33D\" stroke-width=\"3\" fill=\"none\"/>\n        <path class=\"draw\" style=\"--d:8.6s\" d=\"M330 130 L 350 130\" stroke=\"#F2B33D\" stroke-width=\"3\" fill=\"none\"/>\n        <g class=\"a\" style=\"--d:6s\"><rect x=\"5\" y=\"48\" width=\"125\" height=\"44\" rx=\"10\" fill=\"#1D2F52\" stroke=\"#8FB8FF\"/><text x=\"67\" y=\"75\" text-anchor=\"middle\">commandes</text></g>\n        <g class=\"a\" style=\"--d:6.3s\"><rect x=\"5\" y=\"178\" width=\"125\" height=\"44\" rx=\"10\" fill=\"#1D2F52\" stroke=\"#8FB8FF\"/><text x=\"67\" y=\"205\" text-anchor=\"middle\">clients</text></g>\n        <g class=\"a\" style=\"--d:7.8s\"><rect x=\"205\" y=\"108\" width=\"125\" height=\"44\" rx=\"10\" fill=\"#1D2F52\" stroke=\"#3FB8AF\"/><text x=\"267\" y=\"135\" text-anchor=\"middle\">stg_…</text></g>\n        <g class=\"a\" style=\"--d:9s\"><rect x=\"350\" y=\"108\" width=\"68\" height=\"44\" rx=\"10\" fill=\"#F2B33D\"/><text x=\"384\" y=\"135\" text-anchor=\"middle\" fill=\"#14213D\" font-weight=\"700\">mart</text></g>\n        <text class=\"a\" style=\"--d:10s\" x=\"210\" y=\"250\" text-anchor=\"middle\" fill=\"#C8D4EA\" font-family=\"Atkinson Hyperlegible, sans-serif\" font-size=\"16\">Le DAG : dessiné automatiquement par dbt</text>\n      </g>\n    </svg>\n  </div>\n</div>",
+        "duree_artifact_s": 25.99
+      }
+    },
+    {
+      "id": "sc07",
+      "chapitre": 7,
+      "narration": "Troisième concept : la qualité. Avec dbt, on écrit des tests en quelques lignes : cette colonne doit être unique, celle-ci ne doit jamais être vide. Et dbt génère automatiquement un site de documentation, avec la description de chaque table et le graphe complet du projet.",
+      "visuel": {
+        "type": "html",
+        "titre": "Tests et documentation",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Concept n°3 : la qualité</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Des données testées et documentées</h2>\n  <div class=\"grid2\">\n    <div class=\"col\">\n      <div class=\"check a\" style=\"--d:2.5s\"><i>✓</i> id_commande est unique</div>\n      <div class=\"check a\" style=\"--d:3.5s\"><i>✓</i> client n'est jamais vide</div>\n      <div class=\"check a\" style=\"--d:4.5s\"><i>✓</i> montant n'est jamais vide</div>\n    </div>\n    <div class=\"box teal a\" style=\"--d:7s\"><span class=\"emoji\">📖</span><b>Documentation automatique</b>dbt génère un site web qui décrit chaque table, chaque colonne, et le graphe complet du projet.</div>\n  </div>\n</div>",
+        "duree_artifact_s": 20.28
+      }
+    },
+    {
+      "id": "sc08",
+      "chapitre": 8,
+      "narration": "Passons à la pratique ! Il vous faut Python, version 3 point 10 ou plus récente. On crée un environnement virtuel, on l'active, puis on installe dbt avec l'adaptateur DuckDB. DuckDB est une petite base de données qui tient dans un simple fichier : pas de serveur, pas de compte cloud. Parfait pour apprendre. Vérifiez l'installation avec dbt tiret tiret version.",
+      "visuel": {
+        "type": "html",
+        "titre": "Installer dbt",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 1</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Installer dbt avec DuckDB</h2>\n<pre class=\"term a\" style=\"--d:2.5s\"><span class=\"dim\"># 1. Créer un environnement Python isolé</span>\n<span class=\"p\">$</span> python -m venv .venv\n<span class=\"p\">$</span> source .venv/bin/activate      <span class=\"dim\"># Windows : .venv\\Scripts\\activate</span>\n\n<span class=\"dim\"># 2. Installer dbt + l'adaptateur DuckDB</span>\n<span class=\"p\">$</span> pip install dbt-core dbt-duckdb\n\n<span class=\"p\">$</span> dbt --version<span class=\"blink\"></span></pre>\n  <div class=\"box sun a\" style=\"--d:10s\"><b>Pourquoi DuckDB ?</b>C'est une petite base de données qui tient dans un fichier : pas de serveur, pas de compte cloud. Idéal pour apprendre.</div>\n</div>",
+        "duree_artifact_s": 26.4
+      }
+    },
+    {
+      "id": "sc09",
+      "chapitre": 9,
+      "narration": "On crée le projet avec dbt init, suivi de son nom : ma boutique. Quand dbt demande quelle base utiliser, choisissez duckdb. dbt génère un dossier avec quelques éléments clés : le fichier dbt project point yml, qui contient les réglages ; le dossier models, pour vos requêtes ; et le dossier seeds, pour de petits fichiers CSV. La connexion à la base est décrite dans un fichier à part, profiles point yml. Enfin, la commande dbt debug vérifie que tout est bien branché.",
+      "visuel": {
+        "type": "html",
+        "titre": "Créer le projet",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 2</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Créer le projet avec dbt init</h2>\n  <div class=\"grid2\">\n    <div class=\"col\">\n<pre class=\"term a\" style=\"--d:1.5s\"><span class=\"p\">$</span> dbt init ma_boutique\n<span class=\"dim\">  Which database? </span><span class=\"ok\">duckdb</span>\n<span class=\"p\">$</span> cd ma_boutique</pre>\n<pre class=\"tree a\" style=\"--d:5s\"><span class=\"d\">ma_boutique/</span>\n├─ dbt_project.yml  <span class=\"x\">← réglages</span>\n├─ <span class=\"d\">models/</span>          <span class=\"x\">← vos .sql</span>\n├─ <span class=\"d\">seeds/</span>           <span class=\"x\">← vos CSV</span>\n└─ <span class=\"d\">tests/</span></pre>\n    </div>\n    <div class=\"a\" style=\"--d:12s\">\n      <div class=\"file\">~/.dbt/profiles.yml</div>\n<pre class=\"code\"><span class=\"p\">ma_boutique:</span>\n  <span class=\"p\">target:</span> dev\n  <span class=\"p\">outputs:</span>\n    <span class=\"p\">dev:</span>\n      <span class=\"p\">type:</span> duckdb\n      <span class=\"p\">path:</span> ma_boutique.duckdb\n      <span class=\"p\">threads:</span> 1</pre>\n      <pre class=\"term a\" style=\"--d:17s;margin-top:1.2cqw\"><span class=\"p\">$</span> dbt debug   <span class=\"ok\">All checks passed!</span></pre>\n    </div>\n  </div>\n</div>",
+        "duree_artifact_s": 35.79
+      }
+    },
+    {
+      "id": "sc10",
+      "chapitre": 10,
+      "narration": "Il nous faut des ingrédients. Créez un fichier commandes point CSV dans le dossier seeds, avec quelques commandes. Puis lancez dbt seed : dbt charge ce fichier comme une vraie table dans DuckDB. Et remarquez un petit défaut : la même cliente, Awa, est écrite de trois façons différentes. C'est typique des données brutes. On va nettoyer ça.",
+      "visuel": {
+        "type": "html",
+        "titre": "Charger des données (seed)",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 3</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Ajouter des ingrédients : un fichier CSV</h2>\n  <div class=\"grid2\">\n    <div class=\"a\" style=\"--d:2s\">\n      <div class=\"file\">seeds/commandes.csv</div>\n<pre class=\"code\">id_commande,client,montant,date_commande,statut\n1,AWA,15000,2026-09-01,payee\n2,Koffi,8500,2026-09-02,payee\n3,awa,4200,2026-09-03,annulee\n4,Moussa,23000,2026-09-05,payee\n5,Awa,6000,2026-09-07,payee</pre>\n    </div>\n    <div class=\"col\">\n<pre class=\"term a\" style=\"--d:8s\"><span class=\"p\">$</span> dbt seed\n<span class=\"ok\">OK loaded seed file main.commandes</span></pre>\n      <div class=\"box a\" style=\"--d:10s\"><b>Remarquez</b>« AWA », « awa », « Awa » : trois façons d'écrire la même cliente. On va nettoyer ça.</div>\n    </div>\n  </div>\n</div>",
+        "duree_artifact_s": 25.17
+      }
+    },
+    {
+      "id": "sc11",
+      "chapitre": 11,
+      "narration": "Premier modèle : stg commandes. Le préfixe stg veut dire staging : c'est l'étape de nettoyage. On harmonise les noms des clients, on donne le bon type à chaque colonne, et on ne garde que les commandes payées. Regardez la ligne from : on utilise ref, avec le nom de notre seed. dbt sait donc qu'il doit charger le seed avant d'exécuter ce modèle.",
+      "visuel": {
+        "type": "html",
+        "titre": "Modèle de nettoyage (staging)",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 4</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Premier modèle : nettoyer</h2>\n  <div class=\"grid2\">\n    <div class=\"a\" style=\"--d:1.5s\">\n      <div class=\"file\">models/staging/stg_commandes.sql</div>\n<pre class=\"code\"><span class=\"k\">select</span>\n    id_commande,\n    <span class=\"k\">initcap</span>(<span class=\"k\">trim</span>(client))  <span class=\"k\">as</span> client,\n    <span class=\"k\">cast</span>(montant <span class=\"k\">as</span> <span class=\"k\">integer</span>)    <span class=\"k\">as</span> montant,\n    <span class=\"k\">cast</span>(date_commande <span class=\"k\">as</span> <span class=\"k\">date</span>) <span class=\"k\">as</span> date_commande\n<span class=\"k\">from</span> <span class=\"j\">{{ ref('commandes') }}</span>\n<span class=\"k\">where</span> statut = <span class=\"s\">'payee'</span></pre>\n    </div>\n    <div class=\"col\">\n      <div class=\"check a\" style=\"--d:6s\"><i>1</i> Noms harmonisés : « Awa »</div>\n      <div class=\"check a\" style=\"--d:8s\"><i>2</i> Types corrigés</div>\n      <div class=\"check a\" style=\"--d:10s\"><i>3</i> Seulement les commandes payées</div>\n      <div class=\"box sun a\" style=\"--d:12.5s\"><b>ref('commandes')</b>pointe vers notre seed : dbt sait qu'il doit le charger avant.</div>\n    </div>\n  </div>\n</div>",
+        "duree_artifact_s": 27.62
+      }
+    },
+    {
+      "id": "sc12",
+      "chapitre": 12,
+      "narration": "Deuxième modèle : ventes par client. Il s'appuie sur stg commandes, toujours grâce à ref, et calcule pour chaque client le nombre de commandes et le chiffre d'affaires. La première ligne, config, indique la matérialisation. Par défaut, dbt crée une vue, c'est-à-dire une requête enregistrée. Ici, on demande une table : le résultat est stocké, donc plus rapide à lire pour un tableau de bord.",
+      "visuel": {
+        "type": "html",
+        "titre": "Modèle final (mart)",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 5</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Deuxième modèle : le plat servi</h2>\n  <div class=\"grid2\">\n    <div class=\"a\" style=\"--d:1.5s\">\n      <div class=\"file\">models/marts/ventes_par_client.sql</div>\n<pre class=\"code\"><span class=\"j\">{{ config(materialized='table') }}</span>\n\n<span class=\"k\">select</span>\n    client,\n    <span class=\"k\">count</span>(*)     <span class=\"k\">as</span> nb_commandes,\n    <span class=\"k\">sum</span>(montant)  <span class=\"k\">as</span> chiffre_affaires\n<span class=\"k\">from</span> <span class=\"j\">{{ ref('stg_commandes') }}</span>\n<span class=\"k\">group by</span> client</pre>\n    </div>\n    <div class=\"col\">\n      <div class=\"box a\" style=\"--d:9s\"><b>materialized</b><span class=\"tag\">view</span> par défaut : une requête enregistrée.<br><span class=\"tag\" style=\"margin-top:.6cqw\">table</span> : le résultat est stocké, plus rapide à lire.</div>\n      <div class=\"box teal a\" style=\"--d:14s\"><b>Résultat attendu</b>Awa · 2 commandes · 21 000<br>Koffi · 1 · 8 500<br>Moussa · 1 · 23 000</div>\n    </div>\n  </div>\n</div>",
+        "duree_artifact_s": 28.03
+      }
+    },
+    {
+      "id": "sc13",
+      "chapitre": 13,
+      "narration": "On décrit les tests dans un fichier YAML, à côté des modèles. Ici : l'identifiant de commande doit être unique et jamais vide, et le client ne doit jamais être vide. On peut aussi y écrire des descriptions, qui serviront à la documentation. Ensuite, une seule commande : dbt build. Elle charge les seeds, exécute les modèles et lance les tests, dans le bon ordre. Tout est vert ? Bravo : votre premier pipeline dbt fonctionne !",
+      "visuel": {
+        "type": "html",
+        "titre": "Tester et lancer",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 6</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Ajouter des tests, puis tout lancer</h2>\n  <div class=\"grid2\">\n    <div class=\"a\" style=\"--d:1.5s\">\n      <div class=\"file\">models/staging/schema.yml</div>\n<pre class=\"code\"><span class=\"p\">models:</span>\n  - <span class=\"p\">name:</span> stg_commandes\n    <span class=\"p\">description:</span> <span class=\"s\">\"Commandes payées, nettoyées\"</span>\n    <span class=\"p\">columns:</span>\n      - <span class=\"p\">name:</span> id_commande\n        <span class=\"p\">data_tests:</span> [unique, not_null]\n      - <span class=\"p\">name:</span> client\n        <span class=\"p\">data_tests:</span> [not_null]</pre>\n    </div>\n<pre class=\"term a\" style=\"--d:9s\"><span class=\"p\">$</span> dbt build\n<span class=\"dim\">1 of 6</span> seed  commandes ............. <span class=\"ok\">OK</span>\n<span class=\"dim\">2 of 6</span> model stg_commandes ........ <span class=\"ok\">OK</span>\n<span class=\"dim\">3 of 6</span> test  unique_id_commande ... <span class=\"ok\">PASS</span>\n<span class=\"dim\">4 of 6</span> test  not_null_id_commande . <span class=\"ok\">PASS</span>\n<span class=\"dim\">5 of 6</span> test  not_null_client ...... <span class=\"ok\">PASS</span>\n<span class=\"dim\">6 of 6</span> model ventes_par_client ... <span class=\"ok\">OK</span>\n\n<span class=\"ok\">Completed successfully</span></pre>\n  </div>\n</div>",
+        "duree_artifact_s": 32.93
+      }
+    },
+    {
+      "id": "sc14",
+      "chapitre": 14,
+      "narration": "Dernière étape : la documentation. Lancez dbt docs generate, puis dbt docs serve. Votre navigateur ouvre un site qui décrit chaque modèle, chaque colonne, et affiche le graphe de lignage : on voit d'un coup d'œil que ventes par client vient de stg commandes, qui vient lui-même du fichier commandes. L'ingrédient, la recette, le plat.",
+      "visuel": {
+        "type": "html",
+        "titre": "La documentation",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Pratique · Étape 7</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Voir son projet comme un site web</h2>\n<pre class=\"term a\" style=\"--d:1.5s\"><span class=\"p\">$</span> dbt docs generate\n<span class=\"p\">$</span> dbt docs serve     <span class=\"dim\"># ouvre http://localhost:8080</span></pre>\n  <svg class=\"a\" style=\"--d:5s;width:100%;flex:1\" viewBox=\"0 0 900 200\" aria-label=\"Graphe de lignage\">\n    <g font-family=\"JetBrains Mono, monospace\" font-size=\"18\" fill=\"#F4F7FB\">\n      <path class=\"draw\" style=\"--d:6.5s\" d=\"M230 100 H 330\" stroke=\"#F2B33D\" stroke-width=\"3\"/>\n      <path class=\"draw\" style=\"--d:7.5s\" d=\"M560 100 H 640\" stroke=\"#F2B33D\" stroke-width=\"3\"/>\n      <rect x=\"40\" y=\"70\" width=\"190\" height=\"60\" rx=\"12\" fill=\"#1D2F52\" stroke=\"#8FB8FF\"/><text x=\"135\" y=\"106\" text-anchor=\"middle\">commandes</text>\n      <rect x=\"330\" y=\"70\" width=\"230\" height=\"60\" rx=\"12\" fill=\"#1D2F52\" stroke=\"#3FB8AF\"/><text x=\"445\" y=\"106\" text-anchor=\"middle\">stg_commandes</text>\n      <rect x=\"640\" y=\"70\" width=\"230\" height=\"60\" rx=\"12\" fill=\"#F2B33D\"/><text x=\"755\" y=\"106\" text-anchor=\"middle\" fill=\"#14213D\" font-weight=\"700\">ventes_par_client</text>\n      <text x=\"135\" y=\"160\" text-anchor=\"middle\" fill=\"#C8D4EA\" font-size=\"15\" font-family=\"Atkinson Hyperlegible, sans-serif\">ingrédient</text>\n      <text x=\"445\" y=\"160\" text-anchor=\"middle\" fill=\"#C8D4EA\" font-size=\"15\" font-family=\"Atkinson Hyperlegible, sans-serif\">recette de nettoyage</text>\n      <text x=\"755\" y=\"160\" text-anchor=\"middle\" fill=\"#C8D4EA\" font-size=\"15\" font-family=\"Atkinson Hyperlegible, sans-serif\">plat servi</text>\n    </g>\n  </svg>\n</div>",
+        "duree_artifact_s": 23.95
+      }
+    },
+    {
+      "id": "sc15",
+      "chapitre": 15,
+      "narration": "Récapitulons. Vous savez maintenant écrire un modèle, qui n'est qu'un SELECT ; relier les modèles avec ref ; charger un fichier CSV avec dbt seed ; tester et tout exécuter avec dbt build ; et documenter votre projet avec dbt docs. Pour aller plus loin, explorez les sources, les modèles incrémentaux, les macros et les packages. Bravo, et bon courage pour votre prochain projet !",
+      "visuel": {
+        "type": "html",
+        "titre": "Récap et suite",
+        "html": "<div class=\"scene\">\n  <p class=\"step a\">Récapitulatif</p>\n  <h2 class=\"h a\" style=\"--d:.2s\">Vous savez maintenant…</h2>\n  <div class=\"grid2\">\n    <div class=\"col\">\n      <div class=\"check a\" style=\"--d:1.5s\"><i>✓</i> écrire un modèle (un SELECT)</div>\n      <div class=\"check a\" style=\"--d:2.5s\"><i>✓</i> relier les modèles avec ref()</div>\n      <div class=\"check a\" style=\"--d:3.5s\"><i>✓</i> charger un CSV avec dbt seed</div>\n      <div class=\"check a\" style=\"--d:4.5s\"><i>✓</i> tester avec dbt build</div>\n      <div class=\"check a\" style=\"--d:5.5s\"><i>✓</i> documenter avec dbt docs</div>\n    </div>\n    <div class=\"box sun a\" style=\"--d:8s\"><b>Pour aller plus loin</b>\n      Les <em>sources</em> pour déclarer les vraies tables brutes, les modèles <em>incrémentaux</em> pour les gros volumes, les <em>macros</em> Jinja pour ne pas se répéter, et les <em>packages</em> comme dbt_utils.\n    </div>\n  </div>\n</div>",
+        "duree_artifact_s": 28.03
+      }
+    }
+  ]
+}

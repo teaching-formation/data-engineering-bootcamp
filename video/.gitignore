@@ -16,7 +16,10 @@ voice/*.m4a
 
 # Copies régénérées à chaque ./produire.sh (la source est dans scripts/ et out/)
 render/public/audio/
-render/src/data/
+render/src/data/*
+# … sauf la CSS de l'artifact : elle n'est pas régénérée par run, c'est une
+# source dont la composition Tuto a besoin pour compiler.
+!render/src/data/artifactCss.ts
 
 # Poids des modèles de clonage (125 Mo, retéléchargeables)
 checkpoints_v2/

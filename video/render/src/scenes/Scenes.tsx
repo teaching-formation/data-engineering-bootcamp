@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { T } from "../theme";
 import { Terminal } from "./Terminal";
+import { Html } from "./Html";
 
 /* ───────────────── helpers ───────────────── */
 
@@ -500,4 +501,5 @@ export const SCENES: Record<string, React.FC<{ v: any }>> = {
   chapitre: Chapitre,
   tableau: Tableau,
   terminal: Terminal,
+  html: Html,
 };
