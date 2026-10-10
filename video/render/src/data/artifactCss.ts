@@ -1,5 +1,4 @@
-// Genere depuis la CSS de l'artifact source — ne pas editer a la main.
-// Les unites cqw et l'aspect-ratio 16/9 d'origine sont conserves tels quels.
+// Généré depuis la CSS de la page source — ne pas éditer à la main.
 export const ARTIFACT_CSS = `
 :root{
   box-sizing:border-box;

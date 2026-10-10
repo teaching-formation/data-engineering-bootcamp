@@ -36,6 +36,7 @@ echo "▸ 3/5 — Sous-titres (.srt)…"
 ./.venv/bin/python tts/sous_titres.py "out/$ID" "$SCRIPT"
 
 echo "▸ 4/5 — Préparation des assets pour le rendu…"
+mkdir -p render/public/audio render/src/data
 cp "$AUDIO" render/public/audio/narration.wav
 cp "out/$ID/timings.json"   render/src/data/timings.json
 cp "$SCRIPT"                render/src/data/script.json

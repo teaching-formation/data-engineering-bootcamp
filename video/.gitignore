@@ -23,3 +23,6 @@ render/src/data/*
 
 # Poids des modèles de clonage (125 Mo, retéléchargeables)
 checkpoints_v2/
+
+# Paquet à envoyer, régénérable
+*.zip
