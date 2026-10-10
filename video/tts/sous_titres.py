@@ -53,6 +53,29 @@ def habiller(bloc: str) -> str:
     return " ".join(mots[:meilleur]) + "\n" + " ".join(mots[meilleur:])
 
 
+def repartir(duree: float, blocs: list[str], mini: float) -> list[float]:
+    """Répartit la durée d'un segment entre ses sous-titres.
+
+    Au prorata du nombre de caractères — ce qui approxime le temps de lecture —
+    mais sans laisser un bloc court passer en coup de vent : « Bonjour ! » ne
+    doit pas clignoter 0,3 s. Les blocs sous le minimum sont relevés, et le
+    temps manquant est pris sur ceux qui ont de la marge.
+    """
+    total = sum(len(b) for b in blocs) or 1
+    parts = [duree * len(b) / total for b in blocs]
+    if len(blocs) * mini >= duree:      # segment trop court : rien à redistribuer
+        return parts
+    for _ in range(4):
+        manque = sum(mini - p for p in parts if p < mini)
+        if manque < 1e-6:
+            break
+        marge = sum(p - mini for p in parts if p > mini)
+        if marge <= manque:
+            break
+        parts = [mini if p < mini else p - manque * (p - mini) / marge for p in parts]
+    return parts
+
+
 def horodate(s: float) -> str:
     ms = int(round(s * 1000))
     h, ms = divmod(ms, 3_600_000)
@@ -75,20 +98,15 @@ def main() -> None:
         blocs = decouper(texte)
         if not blocs:
             continue
-        # réparti au prorata du nombre de caractères : approxime le temps de lecture
-        total = sum(len(b) for b in blocs)
         t = seg["debut_s"]
-        for b in blocs:
-            part = seg["duree_s"] * (len(b) / total)
+        for b, part in zip(blocs, repartir(seg["duree_s"], blocs, DUREE_MIN_S)):
             cues.append((t, t + part, habiller(b)))
             t += part
 
-    # garantit une durée minimale lisible, sans chevauchement
-    lignes = []
-    for n, (debut, fin, texte) in enumerate(cues, 1):
-        suivant = cues[n][0] if n < len(cues) else fin
-        fin = min(max(fin, debut + DUREE_MIN_S), suivant)
-        lignes.append(f"{n}\n{horodate(debut)} --> {horodate(fin)}\n{texte}\n")
+    lignes = [
+        f"{n}\n{horodate(debut)} --> {horodate(fin)}\n{texte}\n"
+        for n, (debut, fin, texte) in enumerate(cues, 1)
+    ]
 
     sortie = dossier / "sous-titres.srt"
     sortie.write_text("\n".join(lignes), encoding="utf-8")
