@@ -3,6 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { useVideoConfig } from "remotion";
 import { SCENES } from "./scenes/Scenes";
 import { T } from "./theme";
+import { imagesAffichees } from "./timeline";
 import script from "./data/script.json";
 import timings from "./data/timings.json";
 
@@ -52,7 +53,7 @@ const Marque: React.FC = () => (
 );
 
 export const Tuto: React.FC = () => {
-  const { fps } = useVideoConfig();
+  const { fps, durationInFrames } = useVideoConfig();
   const segs = script.segments as any[];
   const parId = Object.fromEntries(segs.map((s) => [s.id, s]));
   const totalChap = Math.max(...segs.map((s) => s.chapitre ?? 0), 1);
@@ -61,13 +62,13 @@ export const Tuto: React.FC = () => {
     <AbsoluteFill style={{ background: T.fond }}>
       <Audio src={staticFile("audio/narration.wav")} />
 
-      {(timings.segments as any[]).map((seg) => {
+      {(timings.segments as any[]).map((seg, i) => {
         const src = parId[seg.id];
         const Scene = SCENES[src?.visuel?.type];
         if (!Scene) return null;
 
         const from = Math.round(seg.debut_s * fps);
-        const dur = Math.round(seg.duree_s * fps);
+        const affiche = imagesAffichees(timings.segments, i, durationInFrames, fps);
 
         // La scène a besoin de sa durée MESURÉE pour remapper les délais que
         // l'artifact avait écrits contre sa propre estimation. Elle n'est connue
@@ -75,7 +76,7 @@ export const Tuto: React.FC = () => {
         const v = { ...src.visuel, _duree_s: seg.duree_s };
 
         return (
-          <Sequence key={seg.id} from={from} durationInFrames={dur} name={src.visuel.titre}>
+          <Sequence key={seg.id} from={from} durationInFrames={affiche} name={src.visuel.titre}>
             <Scene v={v} />
             <Progression chapitre={src.chapitre ?? 0} total={totalChap} />
             <Marque />

@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile, useVideoConfig } from "remotion";
 import { SCENES } from "./scenes/Scenes";
 import { T } from "./theme";
+import { imagesAffichees } from "./timeline";
 import script from "./data/script.json";
 import timings from "./data/timings.json";
 
@@ -51,7 +52,7 @@ const decouper = (t: string): string[] => {
 };
 
 export const Cours: React.FC = () => {
-  const { fps } = useVideoConfig();
+  const { fps, durationInFrames } = useVideoConfig();
   const segs = script.segments as any[];
   const visuels = Object.fromEntries(segs.map((s) => [s.id, s.visuel]));
   const narr = Object.fromEntries(segs.map((s) => [s.id, s.narration]));
@@ -62,16 +63,17 @@ export const Cours: React.FC = () => {
     <AbsoluteFill style={{ background: T.fond }}>
       <Audio src={staticFile("audio/narration.wav")} />
 
-      {(timings.segments as any[]).map((seg) => {
+      {(timings.segments as any[]).map((seg, i) => {
         const v = visuels[seg.id];
         const Scene = SCENES[v?.type];
         if (!Scene) return null;
         const from = Math.round(seg.debut_s * fps);
-        const dur = Math.round(seg.duree_s * fps);
+        const dur = Math.round(seg.duree_s * fps); // temps de parole : cale les sous-titres
+        const affiche = imagesAffichees(timings.segments, i, durationInFrames, fps);
         const groupes = decouper(narr[seg.id] ?? "");
 
         return (
-          <Sequence key={seg.id} from={from} durationInFrames={dur}>
+          <Sequence key={seg.id} from={from} durationInFrames={affiche}>
             <Scene v={v} />
             <Bandeau chapitre={chap[seg.id]} total={totalChap} />
             {groupes.map((g, i) => (

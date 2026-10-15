@@ -3,6 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile, useVideoConfig } from "remot
 import { SCENES } from "./scenes/Scenes";
 import { Subtitles } from "./Subtitles";
 import { T } from "./theme";
+import { imagesAffichees } from "./timeline";
 import script from "./data/script.json";
 import timings from "./data/timings.json";
 
@@ -43,7 +44,7 @@ const Marque: React.FC = () => (
 );
 
 export const Short: React.FC = () => {
-  const { fps } = useVideoConfig();
+  const { fps, durationInFrames } = useVideoConfig();
 
   const narrations: Record<string, string> = Object.fromEntries(
     script.segments.map((s: any) => [s.id, s.narration])
@@ -56,7 +57,7 @@ export const Short: React.FC = () => {
     <AbsoluteFill style={{ background: T.fond }}>
       <Audio src={staticFile("audio/narration.wav")} />
 
-      {timings.segments.map((seg: any) => {
+      {timings.segments.map((seg: any, i: number) => {
         const v = visuels[seg.id];
         const Scene = SCENES[v?.type];
         if (!Scene) return null;
@@ -64,7 +65,7 @@ export const Short: React.FC = () => {
           <Sequence
             key={seg.id}
             from={Math.round(seg.debut_s * fps)}
-            durationInFrames={Math.round(seg.duree_s * fps)}
+            durationInFrames={imagesAffichees(timings.segments, i, durationInFrames, fps)}
           >
             <Scene v={v} />
           </Sequence>
