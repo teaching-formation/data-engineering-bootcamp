@@ -2,17 +2,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV, levelOf } from "@/lib/nav";
+import { ATELIERS, ATELIERS_ACCENT, NAV, levelOf } from "@/lib/nav";
 
 function currentSlug(pathname: string): string {
   const m = pathname.match(/\/modules\/([^/]+)/);
   return m ? m[1] : "";
 }
 
+function currentAtelier(pathname: string): string {
+  const m = pathname.match(/\/ateliers\/([^/]+)/);
+  return m ? m[1] : "";
+}
+
 export default function Sidebar() {
   const pathname = usePathname();
   const slug = currentSlug(pathname);
-  const activeLevel = slug ? levelOf(slug)?.id : undefined;
+  const atelier = currentAtelier(pathname);
+  const activeLevel = slug ? levelOf(slug)?.id : pathname.startsWith("/ateliers") ? "ateliers" : undefined;
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const [collapsed, setCollapsed] = useState(false);
 
@@ -100,6 +106,40 @@ export default function Sidebar() {
               </div>
             );
           })}
+
+          <div className="sidebar__level">
+            <button
+              className="sidebar__level-btn"
+              style={{ ["--accent" as string]: ATELIERS_ACCENT }}
+              aria-expanded={isLevelOpen("ateliers")}
+              onClick={() => setOpen((o) => ({ ...o, ateliers: !isLevelOpen("ateliers") }))}
+            >
+              <span>🛠️ Ateliers</span>
+              <span className="sidebar__chevron">{isLevelOpen("ateliers") ? "▾" : "▸"}</span>
+            </button>
+            {isLevelOpen("ateliers") && (
+              <div className="sidebar__sections">
+                {ATELIERS.map((section) => (
+                  <div key={section.title} className="sidebar__section">
+                    <p className="sidebar__section-title">{section.title}</p>
+                    <ul>
+                      {section.items.map((it) => (
+                        <li key={it.slug}>
+                          <Link
+                            href={`/ateliers/${it.slug}/`}
+                            className={`sidebar__link ${atelier === it.slug ? "is-active" : ""}`}
+                            onClick={closeDrawer}
+                          >
+                            {it.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
       </aside>
     </>

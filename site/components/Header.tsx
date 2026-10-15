@@ -24,6 +24,7 @@ export default function Header() {
           <Link href="/">Accueil</Link>
           <Link href="/modules/beginner__01_intro_data_engineering/">Programme</Link>
           <Link href="/entretien-questions/">Entretien</Link>
+          <Link href="/ateliers/">Ateliers</Link>
 
           <div className="nav-dd">
             <button className="nav-dd__btn" type="button">Ressources ▾</button>

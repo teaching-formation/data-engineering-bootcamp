@@ -1,6 +1,6 @@
 import path from "node:path";
 import fs from "node:fs";
-import { ALL_ITEMS, findItem, type NavItem } from "./nav";
+import { ALL_ATELIERS, ALL_ITEMS, findAtelier, findItem, type Atelier, type NavItem } from "./nav";
 import { renderNotebook, type RenderedNotebook } from "./render";
 
 /** Racine du repo (le dossier parent de `site/`), où vivent les notebooks. */
@@ -21,4 +21,18 @@ export function getNotebook(slug: string): (RenderedNotebook & { item: NavItem }
   const file = slugToFile(slug);
   if (!fs.existsSync(file)) return null;
   return { ...renderNotebook(file), item };
+}
+
+function atelierFile(atelier: Atelier): string {
+  return path.join(REPO_ROOT, "notebooks", `${atelier.file}.ipynb`);
+}
+
+export function allAtelierSlugs(): string[] {
+  return ALL_ATELIERS.filter((a) => fs.existsSync(atelierFile(a))).map((a) => a.slug);
+}
+
+export function getAtelier(slug: string): (RenderedNotebook & { atelier: Atelier }) | null {
+  const atelier = findAtelier(slug);
+  if (!atelier || !fs.existsSync(atelierFile(atelier))) return null;
+  return { ...renderNotebook(atelierFile(atelier)), atelier };
 }

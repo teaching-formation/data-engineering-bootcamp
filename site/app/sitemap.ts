@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { allSlugs } from "@/lib/notebooks";
+import { allAtelierSlugs, allSlugs } from "@/lib/notebooks";
 import { allPageSlugs } from "@/lib/pages";
 
 const BASE = "https://dataeng.from0tohero.dev";
@@ -16,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   for (const slug of allSlugs()) {
     entries.push({ url: `${BASE}/modules/${slug}/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
+  }
+  entries.push({ url: `${BASE}/ateliers/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 });
+  for (const slug of allAtelierSlugs()) {
+    entries.push({ url: `${BASE}/ateliers/${slug}/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
   }
   return entries;
 }

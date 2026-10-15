@@ -210,7 +210,7 @@ Enfin, le critère qu'on oublie : **qui va maintenir ce modèle ?** Une équipe 
 
 > ⚠️ **Le piège** — Réciter « 1NF, 2NF, 3NF » comme un cours. Personne ne te demandera de normaliser une base en entretien DE ; on veut savoir si tu sais **arbitrer** selon l'usage.
 >
-> 📘 **Pour approfondir** : [06 · Bases relationnelles](/modules/beginner__06_intro_relational_databases/) · [34 · Patterns d'architecture](/modules/advanced__34_architecture_patterns_decisions/)
+> 📘 **Pour approfondir** : [06 · Bases relationnelles](/modules/beginner__06_intro_relational_databases/) · [34 · Patterns d'architecture](/modules/advanced__34_architecture_patterns_decisions/) · [🛠️ Atelier Data Vault](/ateliers/data-vault/)
 >
 > 🇬🇧 *star schema, grain, fact table, dimension, denormalization, one big table, broadcast join*
 

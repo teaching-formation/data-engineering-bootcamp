@@ -207,3 +207,49 @@ export function prevNext(slug: string): { prev?: NavItem; next?: NavItem } {
 export function levelOf(slug: string): NavLevel | undefined {
   return NAV.find((l) => l.sections.some((s) => s.items.some((i) => i.slug === slug)));
 }
+
+/**
+ * Ateliers : un sujet creusé à fond, à côté du parcours.
+ * Le parcours (NAV) n'en dépend pas — un atelier approfondit ce qu'un module
+ * survole, avec des exercices vérifiés. Servis sous /ateliers/<slug>/.
+ */
+export type Atelier = {
+  slug: string;
+  title: string;
+  /** chemin sous notebooks/ sans extension */
+  file: string;
+  resume: string;
+  prerequis: string;
+};
+export type AtelierSection = { title: string; items: Atelier[] };
+
+export const ATELIERS_ACCENT = "#14b8a6";
+
+export const ATELIERS: AtelierSection[] = [
+  {
+    title: "🧱 Modélisation",
+    items: [
+      {
+        slug: "data-vault",
+        title: "Data Vault 2.0",
+        file: "ateliers/data_vault",
+        resume:
+          "Construire un Data Vault de tes mains, sur des données de banque : hubs, links, satellites, historique, fin de relation, requêtes dans le temps, puis un data mart en étoile au-dessus.",
+        prerequis: "SQL (module 07)",
+      },
+    ],
+  },
+];
+
+export const ALL_ATELIERS: Atelier[] = ATELIERS.flatMap((s) => s.items);
+
+export function findAtelier(slug: string): Atelier | undefined {
+  return ALL_ATELIERS.find((a) => a.slug === slug);
+}
+
+/** Précédent / suivant restent entre ateliers : ils ne renvoient jamais dans le parcours. */
+export function prevNextAtelier(slug: string): { prev?: Atelier; next?: Atelier } {
+  const idx = ALL_ATELIERS.findIndex((a) => a.slug === slug);
+  if (idx === -1) return {};
+  return { prev: ALL_ATELIERS[idx - 1], next: ALL_ATELIERS[idx + 1] };
+}
