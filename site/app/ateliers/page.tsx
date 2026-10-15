@@ -25,7 +25,7 @@ export default function AteliersPage() {
           </p>
           <p>
             Les ateliers ne changent rien au parcours : fais-les quand tu veux, dans l&apos;ordre que tu veux. Chacun
-            s&apos;ouvre dans Google Colab, sans rien installer.
+            est un notebook Jupyter autonome, qui installe lui-même ce dont il a besoin.
           </p>
         </div>
 

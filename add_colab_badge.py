@@ -25,6 +25,7 @@ EXCLUDE_NOTEBOOKS = [
     "15_kubernetes",
     "16_k8s",
     "21_spark_on_kubernetes",
+    "ateliers/",  # les ateliers se font en local, sans Colab
 ]
 
 def should_exclude(notebook_path: str) -> bool:
