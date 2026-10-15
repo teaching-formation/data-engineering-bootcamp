@@ -36,3 +36,9 @@ export function getAtelier(slug: string): (RenderedNotebook & { atelier: Atelier
   if (!atelier || !fs.existsSync(atelierFile(atelier))) return null;
   return { ...renderNotebook(atelierFile(atelier)), atelier };
 }
+
+/** Nombre d'exercices d'un atelier, compté dans le notebook : il ne peut pas se périmer. */
+export function nbExercicesAtelier(slug: string): number {
+  const nb = getAtelier(slug);
+  return nb ? nb.toc.filter((t) => /^Exercice\b/.test(t.text)).length : 0;
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { NAV } from "@/lib/nav";
+import { ALL_ATELIERS, ATELIERS_ACCENT, NAV } from "@/lib/nav";
+import { allAtelierSlugs, nbExercicesAtelier } from "@/lib/notebooks";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -40,6 +41,8 @@ const SKILLS = [
 
 export default function Home() {
   const totalModules = NAV.reduce((n, l) => n + l.sections.reduce((m, s) => m + s.items.length, 0), 0);
+  const publies = new Set(allAtelierSlugs());
+  const ateliers = ALL_ATELIERS.filter((a) => publies.has(a.slug));
 
   return (
     <>
@@ -112,6 +115,51 @@ export default function Home() {
             );
           })}
         </section>
+
+        {ateliers.length > 0 && (
+          <section className="ateliers-home" aria-labelledby="ateliers-titre">
+            <div className="levels-head">
+              <h2 id="ateliers-titre">🛠️ Les ateliers</h2>
+              <p>Un sujet creusé à fond, à ton rythme — à côté du parcours, sans le modifier.</p>
+            </div>
+            <div className="levels">
+              {ateliers.map((a) => {
+                const n = nbExercicesAtelier(a.slug);
+                return (
+                  <div key={a.slug} className="level-card" style={{ ["--accent" as string]: ATELIERS_ACCENT }}>
+                    <div className="level-card__head">
+                      <h2>{a.title}</h2>
+                      <span className="level-card__count">{n} exercices</span>
+                    </div>
+                    <ul className="level-card__sections">
+                      <li>{a.resume}</li>
+                      <li>Prérequis : {a.prerequis}</li>
+                    </ul>
+                    <Link className="level-card__link" href={`/ateliers/${a.slug}/`}>
+                      Ouvrir l&apos;atelier →
+                    </Link>
+                  </div>
+                );
+              })}
+              <div className="level-card" style={{ ["--accent" as string]: ATELIERS_ACCENT }}>
+                <div className="level-card__head">
+                  <h2>Comment ça marche</h2>
+                  <span className="level-card__count">
+                    {ateliers.length} {ateliers.length > 1 ? "ateliers" : "atelier"}
+                  </span>
+                </div>
+                <ul className="level-card__sections">
+                  <li>📓 Un notebook Jupyter autonome, qui installe lui-même ce dont il a besoin</li>
+                  <li>✅ Des exercices qui se vérifient tout seuls, la solution à portée de clic</li>
+                  <li>🧭 À côté du parcours : tu le fais quand tu veux, il ne change rien à ta progression</li>
+                </ul>
+                <Link className="level-card__link" href="/ateliers/">
+                  Tous les ateliers →
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="interview-cta">
           <div className="interview-cta__text">

@@ -960,6 +960,11 @@ body.toc-collapsed .toc__ico {
   color: var(--text-soft);
 }
 
+/* Section "Ateliers" (accueil), entre le parcours et l'entretien */
+.ateliers-home {
+  margin-top: 56px;
+}
+
 /* Bandeau "Préparation entretien" (accueil) */
 .interview-cta {
   margin-top: 46px;
