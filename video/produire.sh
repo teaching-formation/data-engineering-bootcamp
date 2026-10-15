@@ -43,8 +43,11 @@ cp "$SCRIPT"                render/src/data/script.json
 
 echo "▸ 5/5 — Rendu vidéo ($COMPO)…"
 cd render
+# Un seul onglet : en parallèle, Chrome capture parfois un calque avant de l'avoir
+# peint — la pastille de marque sortait en rectangle vide sur 35 % des images
+# (L03), et le rendu n'était pas plus rapide sur cette machine.
 npx remotion render src/index.ts "$COMPO" "../out/$ID/video.mp4" \
-  --browser-executable="$CHROME" 2>&1 | tail -2
+  --browser-executable="$CHROME" --concurrency=1 2>&1 | tail -2
 
 cd "$RACINE"
 echo ""
