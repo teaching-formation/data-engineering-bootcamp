@@ -26,17 +26,42 @@ def decouper(texte: str) -> list[str]:
         if len(phrase) <= plafond:
             blocs.append(phrase)
             continue
-        # phrase trop longue : on la coupe sur les mots
+        # phrase trop longue : on regroupe ses propositions (coupure aux virgules)
         courant = ""
-        for mot in phrase.split():
-            if courant and len(courant) + 1 + len(mot) > plafond:
-                blocs.append(courant)
-                courant = mot
-            else:
-                courant = f"{courant} {mot}".strip()
+        for prop in re.split(r"(?<=,)\s+", phrase):
+            for morceau in ([prop] if len(prop) <= plafond else couper_equilibre(prop, plafond)):
+                if courant and len(courant) + 1 + len(morceau) > plafond:
+                    blocs.append(courant)
+                    courant = morceau
+                else:
+                    courant = f"{courant} {morceau}".strip()
         if courant:
             blocs.append(courant)
     return blocs
+
+
+def couper_equilibre(texte: str, plafond: int) -> list[str]:
+    """Coupe sur les mots en blocs de longueur égale.
+
+    Un découpage glouton remplit chaque bloc au maximum et laisse traîner un mot
+    seul à la fin (« pas. ») ; viser la longueur moyenne l'évite.
+    """
+    mots = texte.split()
+    n = -(-len(texte) // plafond)
+    while True:
+        cible = len(texte) / n
+        blocs, courant = [], ""
+        for mot in mots:
+            essai = f"{courant} {mot}".strip()
+            if courant and len(blocs) < n - 1 and abs(len(essai) - cible) > abs(len(courant) - cible):
+                blocs.append(courant)
+                courant = mot
+            else:
+                courant = essai
+        blocs.append(courant)
+        if all(len(b) <= plafond for b in blocs):
+            return blocs
+        n += 1
 
 
 def habiller(bloc: str) -> str:
